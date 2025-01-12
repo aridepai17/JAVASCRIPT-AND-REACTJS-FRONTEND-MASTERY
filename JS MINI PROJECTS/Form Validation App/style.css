@@ -1,0 +1,138 @@
+/* Universal Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body Styling */
+body {
+    background: linear-gradient(to bottom, #ff7f50, #ff4500);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+/* Form Container */
+.container {
+    width: 100%;
+    max-width: 450px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px 30px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Form Styling */
+form {
+    width: 100%;
+}
+
+/* Header Styling */
+h1 {
+    font-size: 1.8rem;
+    color: #ff4500;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #ff4500;
+    margin: 10px auto 0;
+}
+
+/* Form Controls */
+.form-control {
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.form-control label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #444;
+}
+
+.form-control input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control input:focus {
+    border-color: #ff4500;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 69, 0, 0.3);
+}
+
+.form-control .error {
+    font-size: 0.85rem;
+    color: #ff4500;
+    margin-top: 0.3rem;
+    min-height: 16px; /* Ensure consistent spacing */
+}
+
+.form-control.success input {
+    border-color: #28a745;
+}
+
+.form-control.error input {
+    border-color: #ff4500;
+}
+
+/* Submit Button */
+#submit {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background: #ff4500;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#submit:hover {
+    background-color: #e14000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

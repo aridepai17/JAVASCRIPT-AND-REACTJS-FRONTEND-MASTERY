@@ -62,3 +62,5 @@ console.log(arr); // [ '10', '20', '30', '40', '50' ]
 
 let joining = arr.join('and');
 console.log(joining); // 10and20and30and40and50
+
+

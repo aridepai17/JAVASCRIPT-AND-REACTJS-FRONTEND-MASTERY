@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motivational Quotes</title>
+</head>
+<body>
+    <h1>Motivational Quotes</h1>
+    <div id="quoteDisplay"></div>
+    <script>
+        const quotes = [
+            "Believe you can and you're halfway there.",
+            "The only way to do great work is to love what you do.",
+            "The future belongs to those who believe in the beauty of their dreams.",
+            "Success is not the key to happiness. Happiness is the key to success.",
+            "Don't watch the clock; do what it does. Keep going.",
+            "You are never too old to set another goal or to dream a new dream.",
+            "The only limit to our realization of tomorrow will be our doubts of today.",
+            "Act as if what you do makes a difference. It does.",
+            "Success usually comes to those who are too busy to be looking for it.",
+            "The way to get started is to quit talking and begin doing.",
+            "Your time is limited, so don't waste it living someone else's life.",
+            "The best time to plant a tree was 20 years ago. The second best time is now.",
+            "You miss 100% of the shots you don't take.",
+            "The only place where success comes before work is in the dictionary.",
+            "Don't be pushed around by the fears in your mind. Be led by the dreams in your heart.",
+            "The only thing standing between you and your goal is the story you keep telling yourself.",
+            "You can't use up creativity. The more you use, the more you have.",
+        ];
+        function displayRandomQuote() {
+            const quoteDisplay = document.getElementById('quoteDisplay');
+            const randomIndex = Math.floor(Math.random() * quotes.length);  
+            quoteDisplay.textContent = quotes[randomIndex]; 
+        }
+        displayRandomQuote();
+
+        function changeQuotePeriodically(){
+            displayRandomQuote();
+            setTimeout(changeQuotePeriodically, 5000); // Change quote every 5 seconds
+        }
+        changeQuotePeriodically();
+    </script>
+</body>
+</html>

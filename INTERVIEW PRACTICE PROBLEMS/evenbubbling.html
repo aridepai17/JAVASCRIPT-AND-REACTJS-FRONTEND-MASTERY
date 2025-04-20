@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling</title>
+</head>
+<body>
+    <h1> Implement a click event on a parent element that triggers different actions based on which
+    child element is clicked. </h1>
+    <ul id="list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <script>
+        let list = document.getElementById('list');
+        list.addEventListener('click', (event)=>{
+            let clickedElement = event.target;
+            if(clickedElement.tagName === 'LI'){
+                alert(`List item clicked: ${clickedElement.textContent}`);
+            }
+            else{
+                alert('Parent element clicked');
+            }
+        });
+    </script>
+</body>
+</html>

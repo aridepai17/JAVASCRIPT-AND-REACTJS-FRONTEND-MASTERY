@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+    <style>
+        *{
+            font-family: "Press Start 2P", cursive;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        h1{
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input[type="text"]{
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button{
+            padding: 10px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #output{
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Local Storage</h1>
+        <input type="text" id="textInput" placeholder="Enter text here"/>
+        <button onclick="saveText()">Save</button>
+        <button onclick="retrieveText()">Retrieve</button>
+        <div id="output"></div>
+    </div>
+    <script>
+        function saveText(){
+            const textInput = document.getElementById("textInput").value;
+            localStorage.setItem("savedText", textInput);
+            document.getElementById("textInput").value = "";
+        } 
+        
+        function retrieveText(){
+            const savedText = localStorage.getItem("savedText");
+
+            if(savedText){
+                document.getElementById("output").textContent = savedText;
+            } else {
+                document.getElementById("output").textContent = "No text saved."
+            }
+        }
+    </script>
+</body>
+</html>

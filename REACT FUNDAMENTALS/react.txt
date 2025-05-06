@@ -1,0 +1,15 @@
+What is UI?
+UI stands for user interface. UI refers to the visual elements and interactive
+features of an application or website that enables users to interact with the software
+
+What is Library?
+A library is a collection of pre-written code that can used by software developers ot help them
+build applications more quickly and efficiently.
+
+What is React?
+React is a popular JavaScript library for building user interfaces.
+
+What is difference between library and framework?
+A library like React, the developer has more freedom and flexibility in choosing how to structure their
+application and how to use the library to achieve their goals.
+A framework like Angular or Ruby On Rails provides a more structured and opioninated approach to building an application.

@@ -35,11 +35,11 @@ function Home() {
       const searchResults = await searchMovies(searchQuery);
       setMovies(searchResults);
       setError(null);
-    } catch {
+    } catch (err) {
       console.log(err);
       setError("Failed to search for movies.");
     } finally {
-      setLoading;
+      setLoading(false); // Fix here, make sure loading is set to false after search completes
     }
     setSearchQuery("");
   };

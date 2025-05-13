@@ -2,10 +2,10 @@ import "../css/Favorites.css";
 import { useMovieContext } from "../context/MovieContext";
 import MovieCard from "../components/MovieCard";
 
-function Favorite() {
+function Favorites() {
   const { favorites } = useMovieContext();
 
-  if (favorites) {
+  if (favorites && favorites.length > 0) {
     return (
       <div className="favorites">
         <h2>Favorites</h2>
@@ -26,4 +26,4 @@ function Favorite() {
   );
 }
 
-export default Favorite;
+export default Favorites;

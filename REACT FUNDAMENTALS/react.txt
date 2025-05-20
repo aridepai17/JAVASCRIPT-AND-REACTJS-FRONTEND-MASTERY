@@ -8,6 +8,9 @@ build applications more quickly and efficiently.
 
 What is React?
 React is a popular JavaScript library for building user interfaces.
+Used for buidling user interfaces, it is not responsible for routing or mkaing HTTP requests.
+Used for handling the view layer of our application.
+It allows us to create large web applications that can change data without reloading the webpage.
 
 What is difference between library and framework?
 A library like React, the developer has more freedom and flexibility in choosing how to structure their

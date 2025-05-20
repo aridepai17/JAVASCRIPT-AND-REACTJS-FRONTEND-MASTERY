@@ -1,0 +1,13 @@
+JSX 
+JSX stands for JavaScript XML. It is similar in appearance to HTML, hence provides a way easily write HTML in React.
+Extension of JavaScript syntax
+Makes your React code look simpler and more readable
+
+eg: 
+const elem = <h1>Hello World!</h1>;
+const elem = <h1>React was released in {2010 + 3}</h1>;
+
+const name = "CWH";
+const elem = <h1>My name is {name}</h1>;
+
+const elem = <h1>Hello {name ? name : 'World'}</h1>;

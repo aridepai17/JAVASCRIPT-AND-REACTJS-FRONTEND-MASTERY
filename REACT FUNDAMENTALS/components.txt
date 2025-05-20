@@ -1,0 +1,55 @@
+- Components in React.js -
+Part of the user interface.
+Core building block of React.
+An application comprises of multiple small components. Small components are combinbed together form the entire UI.
+Components can be nested inside one another.
+
+- Component in code -
+Component code is placed inside a JavaScript file.
+There are two types of components in React:
+1. Class components
+2. Functional components
+
+- Functional Components -
+Functional component is a JavaScript function that accepts input called props (properties) and returns the HTML which describes the UI
+eg:
+function Welcome(props){
+    return <h1>Hello, {props.name}</h1>;
+}
+This function is a valid React component because it accepts a single props and returns a react elements
+Such components are called functional components because they are literally JavaScript functions.
+
+- Class Components -
+A class component is nothing but regular ES6 classes that extend from React's component class.
+They must contain a render method which returns the HTML.
+eg:
+class Welcome extends React.Component{
+    render(){
+        return <h1>Hello, {this.props.name}</h1>;
+    }
+}
+
+- Rendering a Component -
+We made a component, now we want to render/use it. The syntax for using a component is -
+<ComponentName />
+
+- Components in Files - 
+To have less mess inside the main file (with all the components in the same file) and to reuse components on different pages, we have to make them separately. 
+So that we can just import them in any file and use them!
+
+- Component Constructor -
+The constructor gets called when the component is initiated. This is where you initiate the component's properties. 
+In React, we have states which update on the page without reload. Constructor properties are kept in state.
+
+We also need to add the super() statement, which executes the parent component's constructor, 
+and the component gets access to all the functions of the parent component, like this:
+
+class Cat extends React.Component {
+  constructor() {
+    super();
+    this.state = { color: "orange" };
+  }
+  render() {
+    return <h1>Meow's color is {this.state.color}</h1>;
+  }
+}

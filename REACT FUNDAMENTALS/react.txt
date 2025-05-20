@@ -16,3 +16,36 @@ What is difference between library and framework?
 A library like React, the developer has more freedom and flexibility in choosing how to structure their
 application and how to use the library to achieve their goals.
 A framework like Angular or Ruby On Rails provides a more structured and opioninated approach to building an application.
+
+- React create-react-app -
+The create-react-app is an excellent tool for beginners, which allows you to create and run Reacdt applications very quickly.
+It does not take any configuration manually. This tool is wrapping all of the required dependencies like Webpack, Babel for React project itself and then you need to focus on writing code.
+
+- React Features -
+1. JSX
+JSX stands for JavaScript XML. It is similar in appearance to HTML, hence provides a way easily write HTML in React.
+Not neccessary to use JSX, but it is recommended.
+
+2. Components
+Reactjs is all about components, Reactjs application is made up of multiple components and each component has its own logic and control.
+These components can be reusable which helps you maintain the code when working on larger scale applicaions.
+
+3. One Way Data Binding
+Reactjs is designed in such a way that follows unidirectional data flow or one way data binding.
+The benefits of one way data binding is that it gives you better use case throughout the application.
+
+4. Virtual DOM
+A virtual DOM object is a representation of the original DOM object. It works like a one-way data binding. Whenever any modifications happen in the web application.
+The entire UI is re-rendered in virtual DOM representation and new DOM. Once it has done, the real DOM will update only changes that have actually changed.
+
+5. Simplicity
+Reactjs uses JSX file which makes the application simple and to code as well as understand.
+We know that Reactjs is a component based approach whihc makes the code reusable as your need.
+This makes it simple to use and learn.
+
+6. Performance
+Reactjs is known to be a great performer. This feature makes it much better than other frameworks.
+The reason behind this is that it manages virtual DOM. The DOM is a cross platform and programming API whihc deals with HTML, XML and XHTML.
+The DOM exists entirely in memory.
+
+7. SEO Friendly

@@ -1,0 +1,67 @@
+- React State -
+The state is an updated structure that is used to contain data or information about the component.
+The state in component can change over time. The state in change over time happen as a response ot user action or system event.
+A state must be kept as simple as possible.
+It can be state by using the setState() method and calling setState() method will re-render the component and trigger the UI updates.
+A state represents the component's local state of information.
+To state an intial state before any interaction, we need to use the getInitialState() method.  
+
+- Defining State -
+To define a state, you have to first declare a default set of values for the defining the components initial state.
+
+Example:
+import React, { Component } from 'react';
+class App extends React Component {
+    constructor(){
+        super();
+        this.state = { displayBio: true };
+    }
+    render(){
+        const bio = this.state.displayBio ! (
+            <div>My name is Advaith R Pai</div>
+            return(
+                <div>
+                  <h1>Welcome to React</h1>
+                  {bio}
+                </div>
+            )
+        )
+    }
+}
+export default App;
+// In the above example, we have created a state called displayBio and set it to true. 
+When the component is rendered, the value of displayBio is checked and if it is true, the bio will be displayed.
+
+- Changing State -
+We can change the component state y using setState() method and passing a new state object to it.
+Create a new method toggle-DisplayBio() and in the above example.
+
+Example:
+import React, { Component } from 'react';
+
+class App extends React.Component {
+    constructor(){
+        super();
+        this.state = { displayBio: false };
+        console.log('Component this', this);
+        this.toggleDisplayBio = this.toggleDisplayBio.bind(this);
+    }
+    toggleDisplayBio(){
+        this.setState({ displayBio: !this.state.displayBio });
+    }
+    render(){
+        const bio = this.state.displayBio ? (
+            <div>My name is Advaith R Pai</div>
+        ) : null;
+        return(
+            <div>
+                <h1>Welcome to React</h1>
+                {bio}
+                <button onClick={this.toggleDisplayBio}>Toggle Bio</button>
+            </div>
+        )
+    }
+}
+export default App;
+// In the above example, we have created a method called toggleDisplayBio() which will toggle the value of displayBio state. 
+When the button is clicked, the toggleDisplayBio() method is called and the state is updated.

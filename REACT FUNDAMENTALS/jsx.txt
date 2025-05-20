@@ -11,3 +11,8 @@ const name = "CWH";
 const elem = <h1>My name is {name}</h1>;
 
 const elem = <h1>Hello {name ? name : 'World'}</h1>;
+
+It is faster than regular JavaScript because it performs optimization while translating the code to JavaScript.
+Instead of separating technologies by putting markup and logic in separate files, Reactjs uses component that contain both, we will learn components.
+It is type-safe, and most errors can be found at compile time.
+It makes easier to create a template.

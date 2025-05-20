@@ -49,3 +49,18 @@ The reason behind this is that it manages virtual DOM. The DOM is a cross platfo
 The DOM exists entirely in memory.
 
 7. SEO Friendly
+Traditional JavaScript frameworks are not SEO friendly. But Reactjs is SEO friendly.
+
+- Disadvantages of Reactjs -
+1. The high pace of development
+The high pace of development has an advantage and disadvantage both. In case of disadvantage, 
+since the environment continuosly changes fast, some of the developers are not feeling comfortable ot relearn the new ways of doing things regularly.
+
+2. Poor Documentation
+It is another cons which is common for constantly updating technology. React technology and accelerating so fast that there is no documentation that is proper.
+
+3. View Part Only
+Reactjs cover only the UI layers of the app and nothing else, so you need other technologies to get the completer tooling set for development in project.
+
+4 JSX is barrier
+JSX gets complaints from developers about its complexity in the learning curve.

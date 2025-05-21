@@ -1,6 +1,173 @@
 - React Props -
 Props stand for properties. Props are used to pass data from one component to another.
 They are read-only components.
-It is an object which stores the value of attribute of tag and work similar ot the HTML attribute.
+It is an object which stores the value of attribute of tag and work similar to the HTML attribute.
 Props are immutable, so we cannot modify props from inside the component.
+
+Example:
+import React, { Component } from 'react';
+
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <h1>Welcome to {this.props.name}</h1>
+      </div>
+    );
+  }
+}
+export default App;
+// In the above example, we have created a component called App and passed a prop called name to it.
+
+
+Main.js 
+import React from 'react';
+import ReactDom from 'react-dom';
+import App from '/App.js';
+
+ReactDom.render(<Appname = "AdvaithRPai ' />,
+document.getElementById('app'));
+
+// In the above example, we have imported the App component and passed a prop called name to it.
+
+- Default Props - 
+It is not necessary to always add props in the ReactDom.render() element. You can also set default props directly
+
+Example:
+import React, { Component } from 'react';
+class App extends Component {
+  render(){
+    return(
+      <div>
+        <h1>Default Props example</h1>
+        <h2>Welcome to {this.props.name}</h2>
+      </div>
+    )
+  }
+}
+App.defaultProps = {
+  name: 'AdvaithRPai'
+}
+export default App;
+// In the above example, we have set the default props for the App component and passed it to the component.
+If we don't pass the name prop, it will use the default props.
+
+Main.js 
+import React from 'react';
+import ReactDom from 'react-dom';
+import App from '/App.js';
+
+ReactDom.render(<App/>,
+document.getElementById('app'));
+
+ - State and Props - 
+ It is possible to combine both state and props in your app. 
+ You can set the state in the parent component and pass it in the child component using props.
+
+Example:
+import React, { Component } from 'react';
+
+class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      name: 'AdvaithRPai'
+    }
+  }
+  render(){
+    return(
+      <div>
+        <h1>State and Props example</h1>
+        <h2>Welcome to {this.state.name}</h2>
+      </div>
+    )
+  }
+}
+
+class App2 extends React.Component {
+  render(){
+    return(
+      <div>
+        <h1>State and Props example</h1>
+        <h2>Welcome to {this.props.name}</h2>
+      </div>
+    )
+  } 
+export default App;
+// In the above example, we have set the state in the parent component and passed it in the child component using props.
+
+Main.js 
+import React from 'react';
+import ReactDom from 'react-dom';
+import App from '/App.js';
+ReactDom.render(<App/>, document.getElementById('app'));
+
+// In the above example, we have imported the App component and passed it to the ReactDom.render() element.
+
+- React Props Validation -
+Props are an important mechanism for passing the read-only attributes to the React components.
+Apps.propsType is used for props.validation in React Component. When some of the props are passed with an invalid type, you will get warnings on JavaScript console after specifying the validation patterns
+ 
+Syntax:
+class App extends React.Component{
+  render(){}
+}
+Component.propTypes = {
+  name: PropTypes.string,
+  age: PropTypes.number,
+  isMarried: PropTypes.bool,
+  hobbies: PropTypes.array,
+  address: PropTypes.object, etc
+}
+
+- Reactjs Props Validator -
+PropTypes.any - The props that can be of any data type.
+PropTypes.array - The props that should be an array.
+PropTypes.bool - The props that should be a boolean.
+PropTypes.func - The props that should be a function.
+PropTypes.number - The props that should be a number.
+PropTypes.object - The props that should be an object.
+PropTypes.string - The props that should be a string.
+PropTypes.symbol - The props that should be a symbol.
+PropTypes.instanceOf - The props that should be an instance of a class.
+PropTypes.isRequired - The props that are required.
+PropTypes.element - The props that should be a React element.
+PropTypes.node - The props can render anything : number, string, element, array, object etc.
+PropTypes.oneOf() - The props that should be one of the specified values.
+PropTypes.oneOfType() - The props should be an object that could be one of many types.
+
+- Reactjs Custom Validators -
+Reactjs allows creating a custom validation function to perform custom validation. The following arguments is used to create a custom validation function: 
+1. props - It should be first argument in the component.
+2. propName - It is the propName that is being validated.
+3. ComponentName - It is the name of the component that is being validated.
+
+Example:
+var Component = React.createClass({
+  App.propType = {
+    customProp: function ( props, propName, ComponentName ) {
+      if (!item.isValid(props[propName])){
+        return new Error ( 'Validation failed' );
+      }
+    }
+  }
+})
+// In the above example, we have created a custom validation function called customProp which will validate the props passed to the component.
+
+- Difference between Props and State -
+1. Props are read-only and cannot be modified. State is mutable and can be changed and are asynchronous.
+2. Props are immutable. State is mutable.
+3. Props allow you to pass data from one component to another component as an argument. State holds information about the components.
+4. Props can be accessed by the child component. State cannot be accessed by the child component.
+5. Props are used to communicate between component. State can be used for rendering dynamic changes with the component.
+6. Stateless components have props. Stateless components cannot have State. Stateful components can have State. Stateful components can have props.
+7. Props are external and controlled by whatever render the component. State is internal and controlled by the React Component itself.
+
+- React Props AND State have in common -
+1. Both are plain JavaScript objects.
+2. Both are used to render the UI.
+3. Both can contain default values.
+4. Both can be used to pass data from one component to another.
+
+
 

@@ -1,0 +1,114 @@
+- Reactjs Component API -
+Reactjs Component is a top-level API. It makes the code completely individually and reusable in the application.
+It includes many methods - 
+
+1. setState() 
+This method is used to update the state of the component. This method does not always replace the state immediately.
+It only adds changes to the original state. It is primary method that is used to update the user interface in response in event handler and server response.
+this.state.state(object newState [,function callback])
+
+import React, { Component } from 'react';
+import propTypes from 'prop-types';
+class App extends React.Component {
+    constructor(){
+        super();
+        this.state = {
+            msg :'Hello World'
+        }
+        this.update.setState = this.updateState.bind(this);
+    }
+    updateState(newState){
+        this.setState({
+            msg: 'Hello React'
+        })
+    }
+    render(){
+        return(
+            <div>
+                <h1>{this.state.msg}</h1>
+                <button onClick={this.updateState}>Set State</button>
+            </div>
+        )
+    }
+}
+export default App;
+// In the above example, we have created a state called msg and set it to Hello World.
+// When the button is clicked, the updateState() method is called and the state is updated to Hello React.
+
+Main.js 
+import React from 'react';
+import ReactDom from 'react-dom';
+import App from '/App.js';
+ReactDom.render(<App/>,
+document.getElementById('app'));
+
+2. forceUpdate()
+This method allows us to update the component manually.
+Component.forceUpdate([function callback])
+
+Example:
+import React, { Component } from 'react';
+class App extends React.Component {
+    constructor(){
+        super();
+        thos.forceUpdateState = this.forceUpdateState.bind(this);
+    }
+    forceUpdateState(){
+        this.forceUpdate();
+    }
+    render(){
+        return(
+        <div>
+        <h1>Example to generate a random number</h1>
+        <h3>Random number: {Math.random()}</h3>
+        <button onClick={this.forceUpdateState}>Force Update</button>
+        </div>
+        )
+    }
+}
+export default App;
+// In the above example, we have created a method called forceUpdateState() which will force the component to update.
+// When the button is clicked, the forceUpdateState() method is called and the component is updated.
+// The Math.random() function is used to generate a random number. The forceUpdate() method is used to update the component manually and generates a new random number.
+
+3. findDOMNode()
+For DOM manipulation, you need to use the ReactDOM.findDOMNode() method.
+This method allows us to find or access the underlying DOM node of a component.
+ReactDOM.findDOMNode(component)
+
+Example:
+App.js 
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+class App extends React.Component {
+    constructor(){
+        super();
+        this.findDOMNodeHandler1 = this.findDOMNodeHandler1.bind(this);
+        this.findDOMNodeHandler2 = this.findDOMNodeHandler2.bind(this);
+    }
+    findDOMNodeHandler1(){
+        var myDiv = document.getElementById('myDivOne');
+        ReactDOM.findDOMNode(myDivOne).style.color = 'red';
+    }
+    findDOMNodeHandler2(){
+        var myDiv = document.getElementById('myDivTwo');
+        ReactDOM.findDOMNode(myDivTwo).style.color = 'blue';
+    }
+    render(){
+        return(
+            <div>
+            <h1>Reactjs FindDOM Node Example</h1>
+            <button onClick={this.findDOMNodeHandler1}>Find DOM Node 1</button>
+            <button onClick={this.findDOMNodeHandler2}>Find DOM Node 2</button>
+            <div id='myDivOne'>This is my div one</div>
+            <div id='myDivTwo'>This is my div two</div>
+            <button onClick={this.forceUpdateState}>Force Update</button>
+            </div>
+        )
+    }
+}
+export default App;
+// In the above example, we have created two methods called findDOMNodeHandler1() and findDOMNodeHandler2() which will find the DOM node of the div elements.
+// When the button is clicked, the findDOMNodeHandler1() method is called and the color of the first div element is changed to red.
+// When the second button is clicked, the findDOMNodeHandler2() method is called and the color of the second div element is changed to blue.
+

@@ -1,0 +1,17 @@
+- React Keys -
+A key is unique identifier.
+In React, It is used to identify which items have changed, updated or deleted from the lists. 
+It is useful when we dynamically created component in a collection need to be rendered instead of re-rendering the entire set of component every time.
+
+Example:
+const StringList = ['A', 'B', 'C', 'D', 'E', 'F'];
+const updatedList = StringList.map((StringList) => <li key={StringList}>{StringList}</li>);
+
+// In the above example, we have created a list called StringList and passed a list of strings to it.
+// updatedList is a new list of strings with a unique key for each string.
+
+If there are not stable IDs for rendering items, you can assign the item index as a key of lists.
+It can be shown in the below example.
+
+const StringList = ['A', 'B', 'C', 'D', 'E', 'F'];
+const updatedList = StringList.map((StringList, index) => <li key={index}>{StringList}</li>);

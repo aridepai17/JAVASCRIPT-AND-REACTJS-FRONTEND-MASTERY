@@ -29,7 +29,7 @@
             return (
             <div className = 'App'>
             <h3>React Constructor</h3>
-            <input type = 'text' value = {this.state.data} />
+            <input type = 'text' value = {this.state.name} />
             <button onClick = {this.handleEvent}>Click Me</button>
             </div>
             )

@@ -1,0 +1,26 @@
+- Arrow Function - 
+The arrow function is the new feature ES6 standard. If you need to use the arrow function, is it not necessary to bind any event to this.
+
+Example:
+import React, { Component } from 'react';
+class App extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            name: 'AdvaithRPai'
+        }
+    }
+    handleEvent = () => {
+        console.log(this.props);
+    }
+    render() {
+        return (
+            <div className = 'App'>
+            <h2>React Constructor</h2>
+            <input type = 'text' value = {this.state.name} />
+            <button onClick = {this.handleEvent}>Click Me</button>
+            </div>
+        )
+    }
+}
+export default App;

@@ -1,0 +1,15 @@
+- React Lists -
+Lists are used to display in an ordered form and mainly used to display menus on website.
+The map() function is used to traversing the list.
+Include the new list <ul></ul> and render it to DOM
+
+Example:
+import React from 'react';
+import ReactDOM from 'react-dom';
+const myList = ['Peter', 'John', 'Paul', 'George', 'Ringo'];
+const myListItems = myList.map((myList) => <li>{myList}</li>);
+ReactDOM.render(<ul>{myListItems}</ul>, document.getElementById('root'));
+
+// In the above example, we have created a list called myList and passed a list of names to it.
+// The map() function is used to traverse the list and render each name as a list item.
+// The list is rendered to the DOM using the ReactDOM.render() function.

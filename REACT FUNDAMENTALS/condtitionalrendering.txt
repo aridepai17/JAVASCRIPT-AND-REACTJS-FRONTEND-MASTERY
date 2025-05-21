@@ -1,0 +1,115 @@
+- React Conditional Rendering - 
+There is more than one way to do conditional rendering in React.
+
+1. if 
+It is the easiest way to have a conditional rendering in React in the render method
+
+Example:
+function UserLogin(props){
+    return <h1>Welcome Back</h1>
+}
+
+function GuestLogin(props){
+    return <h1>Please Sign Up</h1>
+}
+
+function SignUp(props){
+    const isLoggedIn = props.isLoggedIn;
+    if(isLoggedIn){
+        return <UserLogin/>
+    }
+    return <GuestLogin/>
+}
+ReactDOM.render{
+    <signup isLoggedIn={false}/>
+    document.getElementById('root')
+}
+
+// In the above example, we have created a component called SignUp and passed a prop called isLoggedIn to it.
+// If the isLoggedIn prop is true, the UserLogin component will be returned, otherwise the GuestLogin component will be returned.
+
+2. Logical && operator
+The operator is used to checking the conditions.
+
+Example:
+import React from 'react';
+import ReactDom from 'react-dom';
+
+function Example(){
+    return(
+        <div>
+        {10 > 5 && <h1>10 is greater than 5</h1>}
+        </div>
+    )
+}
+// In the above example, we have used the && operator to check the condition.
+// If the condition is true, the h1 element will be returned, otherwise nothing will be returned.
+
+3. Ternary operator
+
+Example:
+render(){
+    const isLoggedIn = this.state.isLoggedIn;
+    return(
+        <div>Welcome {isLoggedIn ? 'User' : 'Guest'}</div>
+    )
+}
+
+// In the above example, we have used the ternary operator to check the condition.
+// If the condition is true, the User will be returned, otherwise the Guest will be returned.
+
+4. Switch Case operator
+
+Example:
+functional NotificationMsg({text}){
+    switch(text){
+        case 'Hi all':
+            return <h1>Hi all</h1>
+        case 'Hello':
+            return <h1>Hello</h1>
+        default:
+            return <h1>Default</h1>
+    }
+}
+
+// In the above example, we have used the switch case operator to check the condition.
+// If the condition is true, the h1 element will be returned, otherwise nothing will be returned.
+
+
+5. Condtional Rendering with enums
+An enum is a great way to have multiple conditional rendering. It is more readable as compared to switch-case.
+
+Example:
+import React from 'react';
+
+// Message component that displays the text
+function Message({ text }) {
+  return <p>{text}</p>;
+}
+
+// Enum-like object for different message types
+const MessageType = {
+  INFO: 'info',
+  WARNING: 'warning',
+  ERROR: 'error',
+};
+
+// Component that renders based on type
+function NotificationMsg({ type, text }) {
+  const messageMap = {
+    [MessageType.INFO]: <Message text={`ℹ️ Info: ${text}`} />,
+    [MessageType.WARNING]: <Message text={`⚠️ Warning: ${text}`} />,
+    [MessageType.ERROR]: <Message text={`❌ Error: ${text}`} />,
+  };
+
+  return <div>{messageMap[type]}</div>;
+}
+
+export default NotificationMsg;
+
+// In the above example, we have created a component called NotificationMsg and passed a prop called type to it.
+// If the type prop is info, the info message will be returned, if the type prop is warning, the warning message will be returned, and if the type prop is error, the error message will be returned.
+// The messageMap object is used to map the type prop to the corresponding message component.
+// The message component is used to display the message text.
+
+

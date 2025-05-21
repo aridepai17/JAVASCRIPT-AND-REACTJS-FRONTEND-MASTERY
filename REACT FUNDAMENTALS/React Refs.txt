@@ -1,0 +1,68 @@
+- React Refs -
+Refs is the shorthand usd for references in React.
+It is an attribute which makes it possible to store a reference to particular DOM nodes or React elements.
+It provides a way to access React DOM nodes or React elements and how to interact with it.
+
+When to use Refs?
+When we need DOM measurements such as managing focus, text selection, or media playback.
+It is used triggering imperative animations.
+When integrating with third-party DOM libraries.
+It can be also used as in callbacks.
+
+When to not use Refs?
+Its use should be avoided for identify anything that can be done, declaratively instead of using open() and close() methods on a dialog component, you need to pass an isOpen prop to it.
+You should have to avoid overuse of the refs.
+
+How to create Refs?
+In React.Refs can be created by using React.createRef() function.
+It can be assigned to React element via the ref attribute. 
+It is commonly assigned to an instance property when a component is created and then can be referenced throughout the component.
+
+Example:
+class MyComponent extends React.Component {
+    constructor(props){
+        super(props);
+        this.callRef = React.createRef();
+    }
+    render(){
+        return <div ref={this.callRef}>
+    }
+}
+
+How to access the Refs?
+When a Ref is passed to an element inside the render method. A reference to the node can accessed via the current attribute of the Ref.
+const node = this.callRef.current
+
+- Ref current properties -
+When the Ref attribute is used in HTML element, the Ref created with React.createRef() receives, the underlying DOM element as its current property.
+If the Ref attribute is used as an custom class component, then the Ref object receives the mounted instance of the component as its current property.
+
+- CallBack Refs -
+There is another way to use refs that is called 'callback refs' and it gives more control when the refs are set and unset.
+Instead of creating refs by passing a callback function to the ref attribute of a component.
+
+<input type='text' ref={element => this.callRefInput = element} />
+
+The callback function is used to store a reference to the DOM node in an instance property and can be accessed elsewhere.
+
+this.callRefInput.value
+
+- React with useRef() -
+It is introduced in React 16.7 an above versions.
+It helps to get access the DOM node element and we can interact with the DOM node or element such as focusing the element or accessing the input element value.
+It returns the ref object whose current property initialized to the passed argument.
+
+const refContainer = useRef(initialValue);
+
+function useRefExample(){
+    const inputRef = useRef(null);
+    const onButtonClick = () => {
+        inputRef.current.focus();
+    }
+    return(
+        <>
+        <input ref={inputRef} type="text" />    
+        <button onClick={onButtonClick}>Focus Input</button>
+        </>
+    )
+}

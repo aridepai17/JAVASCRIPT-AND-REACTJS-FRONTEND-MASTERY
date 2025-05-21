@@ -1,0 +1,21 @@
+- React Component Life Cycle -
+In Reactjs, every component creation process involves various lifecycle methods. These lifecycle methods are termed as component lifecycle.
+These life cycles are not very complicated and called at various duration of a components life.
+
+1. Initial phase 
+getDefaultProps() - It is used to specify the default value of this.props. It is invoked before the creation of the component or any props from the parent is passed into it.
+getInitialPhase() - It is used to specify the default value of this.state. It is invoked before the creation of the component.
+
+2. Mounting phase
+componentWillMount() - It is invoked immediately before the component gets rendered into the DOM. In this case, when you call setState() inside this method.
+componentDidMount() - This is invoked immediately after the component gets rendered and placed on the DOM. You can do any DOM querying operations.
+render() - This method is defined in each and every component. It is responsible for returning a single root HTML node element.
+
+3. Updating phase
+ComponentWilReceiveProps() - It is invoked when a component receives new props. If you want to update the state in response ot prop changes, you should compare this props and next props to perform state transition by using this.setState()
+ShouldComponentUpdate() - It is invoked when a component decides updating occurs.
+ComponentWillUpdate() - It is invoked just before the component updating occurs. Here you can't change the component state by invoking this.setState() method.
+ComponentDidUpdate() - It is invoked immediately after the component is updated. In this method, you can put any course inside this.
+
+4. Unmounting phase
+ComponentWillUnmount() - It is invoked immediately before the component is unmounted and destroyed. You can perform any cleanup operations in this method.

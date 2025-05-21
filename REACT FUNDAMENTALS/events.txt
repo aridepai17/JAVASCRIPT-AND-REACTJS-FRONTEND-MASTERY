@@ -1,0 +1,55 @@
+- React Events -
+Reactjs has its own even handling system which is very similar ot handling events on DOM elements.
+The React event handling system is known as syntthetic events.
+The synthetic events is a cross-browser wrapper around the browser's native event.
+
+React events are named using camelCase, rather than lowercase.
+A function is passed as a event handler, rather than a string.
+
+// for declaration in plain HTML -
+<button onclick="handleClick()">Click Me</button>
+
+import React, { Component } from 'react';
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      companyName: ""
+    };
+  }
+
+  changeText(event) {
+    // If you wanted to prevent default behavior, you would call:
+    // event.preventDefault();
+    this.setState({
+      companyName: event.target.value
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <h2>Simple Event</h2>
+        <label htmlFor="companyName">Enter Company Name</label>
+        <input
+          type="text"
+          id="companyName"
+          onChange={this.changeText.bind(this)}
+        />
+        <h4>You entered: {this.state.companyName}</h4>
+      </div>
+    );
+  }
+}
+
+export default App;
+
+In the above example, we have created a component called App and passed a prop called name to it.
+The React code creates a class-based component called App where:
+A text input lets the user type a company name.
+As the user types, the changeText function updates the component's state using this.setState().
+The updated text is immediately shown below the input field in real-time.
+This demonstrates event handling and state management in React.
+It’s a simple example of using an onChange event to update the UI dynamically.
+

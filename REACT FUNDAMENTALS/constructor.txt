@@ -1,0 +1,48 @@
+ - Constructor - 
+ The constructor is a special method that is called to initalize an object state in class.
+ It is automatically called  during the creation of an object in class.
+
+ Example:
+ Constructor(props){
+    super(props);
+ }
+
+ In Reactjs , constructor are mainly used to -
+ 1. It is used for intializing the local state of the component by assigning an object in this state.
+ 2. It is used for binding event handler methods that accure in your component.
+
+ Example:
+ App.js 
+    import React, { Component } from 'react';
+    class App extends Component {
+      constructor(props){
+          super(props);
+          this.state = {
+              name: 'AdvaithRPai'
+          }
+          this.handleEvent = this.handleEvent.bind(this);
+      }
+        handleEvent(){
+            console.log(this.props);
+        }
+        render() {
+            return (
+            <div className = 'App'>
+            <h3>React Constructor</h3>
+            <input type = 'text' value = {this.state.data} />
+            <button onClick = {this.handleEvent}>Click Me</button>
+            </div>
+            )
+        }
+    }
+    export default App
+// In the above example, we have created a constructor and set the state in it.
+
+Main.js 
+import React from 'react';
+import ReactDom from 'react-dom';
+import App from '/App.js';
+ReactDom.render(<App/>,
+document.getElementById('app'));
+// In the Main.js file, we have imported the App component and rendered it in the root element of the HTML file.
+

@@ -1,0 +1,90 @@
+- React Forms - 
+Form are an internal part of any modern web application. It allows users to interact with the applcations as well as gather information from the user.
+Forms can perform many tasks that depends on the nature of your business requirements and logic such as authentication of the user.
+
+- Creating a Form - 
+React offers a stateful, reactive approach to build a form. The component rather than DOM usually handles the React form.
+
+1. UnControlled Component
+The uncontrolled component input is similar to the traditional HTML form input. The DOM itself handles the form data.
+The HTML element maintain their own state that will be updated when the input values changes. To write an uncontrolled component - 
+
+import React, { Component } from 'react';
+Class App extends React.Component{
+    constructor(props){
+        super(props)
+        this.updateSubmit = this.updateSubmit.bind(this)
+        this.input = React.createRef();
+    }
+    updateSubmit(event){
+        alert("You have entered the username and CompanyName successfully");
+        event.preventDefault();
+    }
+    render(){
+        return(
+            <form onSubmit= {this.updateSubmit}>
+            <h1>Uncontrolled Form</h1>
+            <label>Name:
+              <input type="text" ref={this.input} />
+            </label>
+            <label>Company:
+              <input type="text" ref={this.input} />
+            </label>
+            </form>
+        )
+    }
+}
+export default App;
+// In the above example, we have created a form with two input fields.
+// The input fields are uncontrolled and the values are not stored in the state.
+// The input fields are created using the React.createRef() method.
+
+2. Controlled Component
+The controlled components have functions that govern the data passing into them on every onChangeEvent; rather than grabbing the data only.
+
+import React, { Component } from 'react';
+Class App extends React.Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            value: " "
+        }
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+    handleChange(event){
+        this.setState({
+            value: event.target.value
+        })
+    }
+    handleSubmit(event){
+        alert("You have submitted the input successfully: " + this.state.value);
+        event.preventDefault();
+    }
+    render(){
+        return(
+            <form onSubmit={this.handleSubmit}>
+            <h1>Controlled Form</h1>
+            <label>
+            Name: 
+                <input type="text" value={this.state.value} onChange={this.handleChange} />
+            </label>
+                <input type="submit" value="Submit" />
+            </form>
+        )
+    }
+}
+export default App;
+// In the above example, we have created a form with two input fields.
+// The input fields are controlled and the values are stored in the state.
+// The input fields are created using the this.state.value and this.handleChange() method.
+// The handleChange() method is called on every onChangeEvent and the value is updated in the state.
+// The handleSubmit() method is called on form submission and the value is displayed in an alert box.
+// The controlled components are the most common way to handle forms in React.
+
+- Controlled Components V/S Uncontrolled Components -
+Controlled components do not maintain internal state and Uncontrolled components maintain their own internal state.
+Controlled components have data that is controlled by parent component and Uncontrolled components have data that is controlled by the DOM.
+Controlled components accepts the current value as prop and Uncontrolled components uses a ref for their current values.
+Controlled components allows validation control and Uncontrolled components does not allow validation control.
+Controlled components have better control over the form elements and data while Uncontrolled components have less control over the form elements and data.

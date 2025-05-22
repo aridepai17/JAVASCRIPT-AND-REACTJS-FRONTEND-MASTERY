@@ -1,0 +1,46 @@
+- React Higher-Order Component -
+It is also know as HOC.
+In React, HOC is an advanced technique for reusing component logic.
+It is a function that takes a component and returns a new component.
+
+const NewComponent = higherOrderComponent(WrappedComponent){
+...
+}
+
+HOC.js 
+import React from 'react';
+export default function HOC(HOCComponent){
+    return class extends Component {
+        render(){
+            return(
+                <div>
+                    <HOCComponent> </HOCComponent>
+                </div>
+            )
+        }
+    }
+}
+
+App.js 
+import React, { Component } from 'react';
+import HOC from './HOC.js';
+
+class App extends Component{
+    render(){
+        return(
+            <div>
+                <h1>Higher Order Component</h1>
+                <HOCComponent />
+            </div>
+        )
+    }
+}
+
+App = HOC(App);
+export default App;
+
+// In the above example, we have created a higher order component called HOC which takes a component as an argument and returns a new component.
+// The HOC component is then used in the App component.
+// The HOC component is used to wrap the App component and return a new component.
+// The HOC component can be used to add additional functionality to the App component.
+

@@ -1,0 +1,29 @@
+- React Router -
+Routing is a process in whic a suer is directed to different pages based on the their actions or request.
+Reactjs Router mainly is mainly used for developing a single page application.
+React Route is the standard library system built on top of Reactjs applcation using React Router package.
+It provides the synchronous URL on the browser with data that will be displayed on the web page.
+
+React contain 3 different packages of routing:
+1. react-router
+It provides the core routing components and function for the React Router.
+
+2. react-router-dom
+It is used for web applications. It provides the DOM bindings for React Router.
+
+3. react-router-native
+It is used for mobile applications. It provides the native bindings for React Router.
+
+npm install react-router-dom --save
+npm install react-router-native --save
+npm install react-router --save
+
+- Components of React Router -
+1. BrowserRouter - It is used for handling API 
+2. HashRouter - It is used for handling hash static request
+
+- Benefits of React Router -
+1. It is not necessary to set the browser history manually.
+2. Link uses a navigate the internal links in the applcation. It is similar to anchor tag.
+3. It uses switch feature for rendering.
+4. If the router needs only a single child element.

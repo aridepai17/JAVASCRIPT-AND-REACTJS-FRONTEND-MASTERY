@@ -1,0 +1,31 @@
+- React Hooks -
+Hooks are a new feature introduced in Reactjs.
+It allows you to use state and other React features without writing a class.
+
+- Rules of Hooks -
+1. Only call Hooks at the top level.
+2. Only call Hooks from React function components.
+
+- Hooks State - 
+Hooks state is the new way of declaring a state in Reactjs.
+Hook uses useState() hook for setting and retrieving the state.
+
+Example:
+
+App.js
+import React, { useState } from 'react';
+function CountApp(){
+    const [count, setCount] = useState(0);
+    return(
+        <div>
+            <h1>Count: {count}</h1>
+            <button onClick={() => setCount(count + 1)}>Increment</button>
+        </div>
+    )
+}
+export default CountApp;
+// In the above example, we have created a state called count and set it to 0.
+// We have also created a function called setCount that updates the count state.
+// We have also created a button that calls the setCount function when clicked.
+// When the button is clicked, the count state is updated and the UI is updated.
+// This is the new way of declaring a state in Reactjs.

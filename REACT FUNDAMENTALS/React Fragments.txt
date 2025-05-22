@@ -1,0 +1,58 @@
+- React Fragments - 
+The render method can return single elements or multiple element.
+The render method will only render a single node inside at a time.
+
+class App extends React.Component {
+    render(){
+        return (
+            <div>
+                <h1>Welcome to React</h1>
+                <h2>React Fragments</h2>
+                <p>This is a paragraph inside a div element.</p>
+        )
+    }
+}
+
+Syntax:
+<React Fragment>
+<h2>Child 1</h2>
+<p>Child 2</p>
+...
+</React Fragment>
+
+Why we use Fragments?
+It makes the execution of the code faster as compared to the div tag.
+It takes less memory.
+
+- Fragments Short Syntax -
+There is also another shorthand method that exists for declaring fragments for the above method. 
+It looks like empty tag in which we can use <> instead of <React Fragment>
+
+Example:
+Class Columns extend React.Component{
+    render(){
+        return (
+            <>
+            <h2>Hello</h2>
+            <p>Welcome</p>
+            </>
+        )
+    }
+}
+
+- Key Fragments -
+The shorthand syntax does not accept key attribute. 
+You need a key for mapping a collection ot an array of fragmetns such as to create a description list.
+
+Function = ( props ) {
+    return (
+        <Fragment>
+            {props.items.map((item) => (
+                <React.Fragment key={item.id}>
+                  <h2>Item name: {item.name}</h2>
+                  <p>Item description: {item.description}</p>
+                </React.Fragment>
+            ))}
+        </Fragment>
+    )
+}

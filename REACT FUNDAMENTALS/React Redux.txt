@@ -1,0 +1,22 @@
+- React Redux - 
+Redux was inspired by Flux.
+Redux studied the Flux architecture and made it simpler.
+
+1. Redux does not have a dispatcher concept.
+2. Redux has a single store whereas Flux has multiple stores.
+3. The Action objects will be received and handled directly by the store.
+
+- Store -
+The store is a single object that holds the entire state of the application.
+The store is the place where the entire state of your applcation lists.
+It manages the status of the applcation and has a dispatch function.
+It is like a brain responsible for all moving parts in Redux.
+
+- Action -
+Action is sent or dispatched from the view has which are payloads that can be read by Reducers
+It is pure object created to the store the information of user events.
+It includes information such as type of achieve time of occurances, location of occurances, its coordinates and which state it aims to change.
+
+- Reducer -
+Reducer reads teh payload from the action and then updates the store via the state accordingly. 
+It is pure function to reach a new state from the previous state.

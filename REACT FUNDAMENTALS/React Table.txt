@@ -1,0 +1,58 @@
+- React Table - 
+A table is an arrangement which organizes information into rows and columns.
+It is used to store and display data in a structured format.
+The react-table is a lightweight, fast, fully customizable and extendable datagrid built for React. 
+It is fully controllable via callbacks and render props.
+
+- React Table Features - 
+1. Lightweight
+2. It is fully customizable
+3. It is fullty controllable via optional props and callbacks
+4. It has client-side & server-side pagination
+5. It has filters
+6. It has Pivoting & Aggregation
+7. Minimal design and easily themeable
+
+import React, { Component } from 'react';
+import ReactTable from 'react-table';
+import 'react-table/react-table.css';
+
+class App extends Component {
+    render(){
+        const data = [ {
+            name: 'AdvaithRPai',
+            age: 25,
+            company: 'Google'
+        },
+        {
+            name: 'AdvaithRPai',
+            age: 25,
+            company: 'Google'
+        },
+        {
+            name: 'AdvaithRPai',
+            age: 25,
+            company: 'Google'
+        },
+        {
+            name: 'AdvaithRPai',
+            age: 25,
+            company: 'Google'
+        },
+        {
+            name: 'AdvaithRPai',
+            age: 25,
+            company: 'Google'
+        }
+        ]
+        return(
+            <div>
+                <ReactTable data={data} columns={columns} defaultPageSize={10} pageSizeOptions={[5, 10, 20, 25, 50, 100]} /></div>
+        )
+    }
+}
+export default App;
+// In the above example, we have created a table using the react-table library.
+// The table is created using the ReactTable component and the data is passed to it as a prop.
+// The columns are defined using the columns prop and the defaultPageSize is set to 10.
+// The pageSizeOptions prop is used to set the page size options for the table.

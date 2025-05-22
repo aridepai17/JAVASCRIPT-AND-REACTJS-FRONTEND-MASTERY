@@ -1,0 +1,30 @@
+- React Map - 
+A map is a data collection type where data is stored in the form of pairs. 
+It contains a unique key. The value stored in the map must be mapped to the key.
+We cannot store duplicate pair in the map().
+It is because of the uniqueness of each stored key. 
+It is mainly used for fast searching and looking for updates.
+
+1. Used for fast searching and traversing 
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+function NameList (props) {
+    const myList(props){
+        const listItems = mylist.map((myList) => <li>{myList}</li>);
+    return(
+        <div>
+          <h2>React Map Example</h2>
+          <ul>{listItems}</ul>
+        </div>
+    )
+    }
+    const myList = ['Peter', 'John', 'Paul', 'George', 'Ringo'];
+    ReactDOM.render(<NameList myList={myList}/>, document.getElementById('root'));
+}
+export default NameList;
+
+// In the above example, we have created a list called myList and passed a list of names to it.
+// The map() function is used to traverse the list and render each name as a list item.
+// The list is rendered to the DOM using the ReactDOM.render() function.
+

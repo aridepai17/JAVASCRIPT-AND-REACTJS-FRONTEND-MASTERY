@@ -1,0 +1,23 @@
+- React Context - 
+Context allows passing data through the component tree without passing props donw manually at every level.
+
+- React Context API - 
+1. React.createContext()
+It creates a context object.
+const MyContext = React.createContext(defaultValue);
+
+2. React.Context.Provider
+Every context object has a provider React compoennt which allows consuming components ot subscribe to context changes.
+<MyContext.Provider value={/* some value */}>
+  
+3. Context.Consumer
+It is an React Component which subscribes to the context changes.
+It allows us to the context withiin an function.
+
+<MyContext.Consumer>
+  {value => /* render something based on the context value */}
+</MyContext.Consumer>
+
+4. Class contextType
+The contextTyper property on a class is used to assign a context object which is created by React.createContext(). 
+It allows you to consume the closet current value of that context type using this.context

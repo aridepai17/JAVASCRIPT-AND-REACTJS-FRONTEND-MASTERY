@@ -1,0 +1,13 @@
+- React Code Splitting - 
+The react app bundles their files using tools like Webpack or Browsefy.
+Bundling is a process which takes multiple files and merge them into a single file, which is called a bundle.
+The bundle is responsible for loading an entire app at once on the webpage.
+
+Code splitting improves -
+1. Performance of the app
+2. The impact on the memor
+3. The downloadable kilobytes size 
+
+- React.lazy() -
+The best way for code splitting into the app is through the dynamic import() syntax.
+The React.lazy() function allows us to render a dynamic import as a regular component.

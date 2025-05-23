@@ -1,0 +1,73 @@
+- Event Listener -
+DOM Elements, things that are on the page, they emit events for things like when they are clicked, hovered, dragged, they will fire off events when they are interacted with.
+We can use event listeners to listen for when these things happen and react to them.
+You can attach event listeners to all elements, as well as the document and the window.
+
+Example:
+<button class="butts">Click Me!</button>
+<script src="./events.js"></script>
+
+In order to attach event listeners, you first need to select the element you want to attach it to.
+const butts = document.querySelector('.butts');
+
+Event listeners will usually take two arguments:
+1. what the type of event is that you want to listen to
+2. what you want to do when that event happens ( callback function )
+
+A callback function is just a regular function, it's just a word we use to describe when we pass a function to a method that will then be called at a later point in time.
+Instead of us calling the function, we provide the name, reference to a function to addEventListener and then the browser will take care of calling or running that function for us when it needs to.
+
+butts.addEventListener('click', handleClick);
+function handleClick() {
+  console.log('I was clicked!');
+}
+
+If you try to run the code with handleClick() instead of handleClick and refresh the page, you will see the message "I was clicked!" in the console before we ever click the button.
+That is because it is running on page load when we pass the function as handleClick() instead of handleClick.
+
+Because the browser will run the function for us. We simply pass it a reference so it knows what to run when the time comes.
+
+- Removing Event Listeners -
+The second benefit is if you want to remove an event listener from an element, you must have reference to the function.
+
+removeEventListener() takes 2 arguments:
+1. the event
+2. the function
+
+butts.removeEventListener('click', handleClick);
+
+If you refresh the HTML page, you will see the event listener no longer works.
+That is called unbinding.
+
+What does binding mean?
+A binding essentially means taking a function and listening for a specific click within an element.
+So if you want to remove the event listener, you must have reference to the original function.
+
+- Listening to events on multiple elements -
+Let's say you have 40 buttons on the page and anytime you come across a specific type of button, or a specific type of image, or anything like that, 
+you want to listen for the event for all of the things that are on that page.
+
+<button class="buy">Buy Item 1</button>
+<button class="buy">Buy Item 2</button>
+<button class="buy">Buy Item 3</button>
+<button class="buy">Buy Item 4</button>
+<button class="buy">Buy Item 5</button>
+<button class="buy">Buy Item 6</button>
+<button class="buy">Buy Item 7</button>
+<button class="buy">Buy Item 8</button>
+<button class="buy">Buy Item 9</button>
+<button class="buy">Buy Item 10</button>
+
+Now, how can you listen for a click on all of them?
+It doesn't make sense to have to select all 10 of them and then have to attach an event listener 10 times.
+That is actually what we are doing, but there is a much more efficient way.
+
+const buyButtons = document.querySelectorAll("button.buy");
+
+function buyItem() {
+  console.log('BUYING ITEM');
+}
+buyButtons.addEventListener('click', buyItem);
+
+So we have our elements, we listened for them, and then when that happens, we passed the function to run.
+

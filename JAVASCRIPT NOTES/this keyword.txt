@@ -1,0 +1,10 @@
+- this Keyword -
+
+photoEl.addEventListener("mousemove", function() {
+  console.log(e.currentTarget);
+  console.log(this);
+});
+
+It is exactly the same thing.
+So if you have a callback function, and you want to reference the element that the event was called against, 
+the this keyword will surface that for you.

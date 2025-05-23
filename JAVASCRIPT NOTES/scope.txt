@@ -1,0 +1,106 @@
+- Scope -
+Scope is the area of a program where a variable can be used.
+There are two types of scope, global scope and local scope.
+
+- Global Variables -
+With global variables, whether you have a script tag, or javascript file, or run it in the console, anytime you declare a variable, it will be available anywhere in the application.
+Because when you just go ahead and create a variable in a javascript file, not inside of a function, not inside of a module, not inside of an if statement, 
+when you create it out in the open, that is what is referred to as a global variable.
+You can access global variables from any other javascript that is running on the page like a script tag or via the console.
+In the browser, the global scope is called the window.
+If you type window in the console, you will see every single thing that is attached to the global scope is inside of the window.
+
+- Function Scope -
+Example: 
+const age = 100;
+
+function go() {
+  const hair = 'blonde';
+}
+
+console.log(age);
+console.log(hair);
+
+Age returns 100, but hair throws a reference error.
+This is the next type of scope which is called function scope.
+What function scope is, is when variables are created inside of a function, those variables are only ever available inside of that function.
+That means that anything we create inside of the go() function, is not available outside of that function, unless we were to explicitly return it and put it into its own variable when that function is run.
+
+function go() {
+  const hair = 'blonde';
+  console.log(hair);
+}
+You can think of the curly brackets in functions as gates.
+They keep the variables in and do not allow them to leak out.
+
+This is an interesting thing about javascript and most programming languages.
+
+Variables, if they are not found inside of a function, will go up a level higher and look for a variable in that scope. 
+If it's not available in that scope, it will go up a level higher.
+
+const age = 100;
+
+function go() {
+  const age = 200;
+  const hair = 'blonde';
+  console.log(age);
+  console.log(hair);
+}
+In the example above, if we wanted to access the age = 100; from the go() function, 
+there is no way to do that because the variable has been shadowed (meaning it has been over-written).
+A tip is that if you ever have a variable inside of a function that is very similar to a variable outside of a function, 
+you should name the variable inside of the function more specifically so you have access to both.
+
+- Block Scope -
+onst variables cannot be reassigned, and let and var variables can be re-assigned. They have a different way of how they are scoped.
+Block scoping is one of the reasons people say use const by default, and use let when you want to re-assign it and don't use var unless there is a specific use case for it.
+
+Example:
+const dog = 'snickers';
+
+function logDog() {
+  console.log(dog);
+}
+
+function go() {
+  const dog = 'sunny';
+  logDog();
+}
+
+go();
+
+What is going on here?
+We have a variable dog which is set to "snickers".
+We have a function logDog that will log the dog variable.
+We also have a go() function that creates a variable named dog again, and sets it to the value of "sunny".
+Then we run that logDog() function, and then we run go();.
+
+What does it log? Snickers!
+Even though we ran the logDog() function within the go() function and that function has a locally scoped variable set to the value of Sunny, it's still logging Snickers.
+
+- Lexical and Static Scope -
+That is because javascript has what is referred to as lexical scoping or static scoping.
+What that means is the way that variable look-up or scope look-up happens, is where the functions are defined, not where they are run.
+
+Example:
+const dog = 'snickers';
+
+function logDog(dog) {
+  console.log(dog);
+}
+
+function go() {
+  const dog = 'sunny';
+  logDog('Rufus');
+}
+
+go();
+
+Now that console will log "Rufus". Why?
+Because when a function takes in an argument, it will make local variables inside of that function named whatever you named the parameter, and then that is available to them.
+The code doesn't care what you called the variable that you are passing in, it just cares about the value.
+
+- Best Practices -
+1. Try not to create global variables.
+2. Functions are scoped the exact same as variables.
+

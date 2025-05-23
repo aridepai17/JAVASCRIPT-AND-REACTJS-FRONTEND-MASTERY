@@ -1,0 +1,59 @@
+- Hoisting - 
+Hoisting in JavaScript allows you to access functions and variables before they have been created.
+
+There are two things in JavaScript that are hoisted:
+1. Function declarations
+2. Variable declarations
+
+- Hoisting Function Declarations -
+Example:
+
+sayHi();
+
+function sayHi() {
+  console.log('hey!');
+}
+
+When you run your JavaScript file, the JavaScript compiler will take all of your function declarations and move them to the top of the file so they are all available before you use them.
+Because of hoisting, you can technically run a function before it exists.
+
+Example:
+
+sayHi();
+
+function sayHi() {
+  console.log('hey!');
+  console.log(add(10, 2));
+}
+
+function add(a, b){
+  return a + b;
+}
+
+Is that going to work? It does.
+That is because hoisting moves them to the top before it will actually run anything.
+So JavaScript rearranges the file and puts all the variable and function declarations at the top of the file.
+Why does that functionality exist?
+Wes hardly ever uses hoisting, he prefers to declare his functions before using them.
+When we get into modules, he prefers to put his separate functions in a module like util functions or math functions, and then import them as he needs them.
+
+- Variable Hoisting -
+
+Example:
+console.log(age);
+var age = 10;
+
+What will happen? Is it going to error? Undefined? 10?
+The value is undefined.
+
+Why is that?
+What is happening is that JavaScript will hoist the variable declarations but it will not actually hoist the setting of the values.
+So if after the page is loaded, you type age into the console, it will be set to 10.
+So what JavaScript does is it says before everything runs, I am going to make my variables and then I am going to go ahead and update them.
+
+You can use hoisting to figure out if variables are created but not what their values are later in the file.
+
+Hoisting is when variable declarations and function declarations are hoisted to the top of the file.
+Only function declaration types of functions are hoisted, not function expressions (when you put a function in a variable).
+Same thing goes with arrow function or any other type of function.
+It is important to note that although let and const variables are hoisted, they are not initialised to undefined, unlike var variables.

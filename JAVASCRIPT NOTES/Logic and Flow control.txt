@@ -1,0 +1,118 @@
+- Logic and Flow control -
+
+- BEDMAS -
+
+B - Brackets
+E - Exponents
+D - Division
+M - Multiplication
+A - Addition
+S - Subtraction
+
+const age = 10 * 5 - 2; // 48
+const age2 = 10 * (5 - 2); // 30
+
+If Statements are the foundation of all logic in JavaScript. They expect booleans, which are always either true or false, 
+or they expect some sort of condition that is evaluated to true or false or truthy and falsy.
+
+if (10 > 2) {
+  console.log('Yep');
+} else if (11 > 10) {
+  console.log('Yep');
+}
+
+
+if (10 > 2) {
+  console.log('Yep');
+} else if (11 > 10) {
+  console.log('Yep');
+} else if (3 > 1) {
+  console.log('Yep');
+}
+
+if (10 > 2) {
+  console.log('Yep');
+}
+if (11 > 10) {
+  console.log('Yep');
+}
+if (3 > 1) {
+  console.log('Yep');
+}
+
+if (age > 70) {
+  console.log('In your seventies');
+} else if (age > 60) {
+  console.log('In your sixties');
+} else if (age > 50) {
+  console.log('In your 50s');
+} else {
+  console.log("nothing was true");
+}
+
+- return -
+The return statement is used to stop the execution of a function and return a value from that function.
+It means to return a value from a function, and stop that function from running.
+
+Whenever you return from a function, even if it's inside of an if statement, that function will stop running and the code that was is within the else will never be reached. So rather than having an if else, we can have an if and then the else is assumed by putting it after the if condition. 
+This is just personal preference, both approaches are completely valid.
+
+- Operators -
+
+1. != and !==
+!= is used to compare two values and check if they are not equal.
+!== is used to compare two values and check if they are not equal and of the same type.
+eg: 10 != 10 // false
+eg: 10 != 20 // true
+
+2. ||
+|| is used to check if one of the values is true.
+eg: 10 > 2 || 10 < 2 // true
+eg: 10 > 2 || 10 > 20 // true
+eg: 10 < 2 || 10 < 20 // false
+
+3. &&
+&& is used to check if both values are true.
+eg: 10 > 2 && 10 < 2 // false
+eg: 10 > 2 && 10 > 20 // false
+eg: 10 < 2 && 10 < 20 // false
+eg: 10 > 2 && 10 < 20 // true
+eg: 10 > 2 && 10 < 20 // true
+eg: 10 > 2 && 10 < 20 // true
+
+When you use the and operator, if any one of the conditions is false, then the entire thing will evaluate to false.
+However, when you use the || operator, if any of the conditions are true, it will always be true.
+
+- Truthy or Falsy -
+
+const dog = 'snickers';
+if (dog) {
+  console.log('You have a dog');
+} else {
+  console.log("You don't have a dog");
+}
+If you run that in the browser, you will see "You have a dog" logged in the console.
+
+const dog = '';
+However, if you were to change the dog variable declaration to leave it empty as shown above,
+You would see "You don't have a dog"!
+An empty string is not true, and it's not false. It's an empty string.
+
+That is because if statements will take in number of different values and it will try to coerce them (turn them) into a boolean of true or false.
+
+Values that are truthy or falsy will also work.
+
+- Truthy or Falsy values -
+1. 0 // falsy
+2. 1 // truthy
+3. 10 // truthy
+4. undefined variable // falsy
+5. variable set to null // falsy
+6. a variable set to "hello" - 10 NaN // falsy
+7. empty string // falsy
+8. full string // truthy
+9. a string of "0" // truthy
+10. empty array // truthy
+11. empty object // truthy
+12. array with no values // truthy
+13. array with values // truthy

@@ -1,0 +1,11 @@
+- forEach Method -
+
+buyButtons.forEach(function(buyButton) {
+  console.log('Binding the buy button');
+  buyButton.addEventListener("click", buyItem);
+});
+
+If you refresh the page, you will see the "Binding the buy button" text was triggered 10 times and 
+if you click each of the buttons, you should see the text BUYING ITEM logged 10 times.
+
+Similarly, if you want to remove the event listener from each of those, you have to loop over each of them as well.

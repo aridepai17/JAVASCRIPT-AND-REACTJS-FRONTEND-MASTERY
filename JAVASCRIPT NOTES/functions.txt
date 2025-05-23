@@ -54,3 +54,214 @@ myTotal2 = calculateBill(200, 1.13);
 myTotal3 = calculateBill(300, 1.13);
 console.log(myTotal1, myTotal2, myTotal3); // 113 226 339
 
+- Function Expression -
+A function expression is a way to define a function and assign it to a variable.
+
+eg:
+const doctorize = function(firstName){
+    return `Dr. ${firstName}`;
+}
+
+- Difference between Function Declaration and Function Expression -
+HOISTING
+There is only one real difference which is how they operate in something called hoisting.
+
+
+doctorize("wes");
+doctorize2("wes");
+
+const doctorize = function (firstName) {
+  return `Dr. ${firstName}`;
+};
+
+function doctorize2 (firstName) {
+  return `Dr. ${firstName}`;
+}
+
+Why does a function declaration work if you call it before you define it, 
+but a function expression does not, especially when we created the exact same function in both cases?
+Functions that are declared with the function keyword are called hoisted.
+Hoisting is more of an interview question that you may be asked.
+
+Essentially it means that JavaScript will take functions and bring them up to the top of the code before they are called. 
+This gives us the ability to run a function before it is defined.
+
+- Arrow Functions -
+The next way to make a function is using an arrow function.
+Arrow functions themselves have a few different ways of being declared.
+They are a newer addition to JavaScript, and were added in the last couple of years.
+Benefits -
+1. They are concise syntax and tend to be shorter
+2. They allow for writing one line functions
+3. do not have their own scope in reference to the this keyword
+
+Arrow functions are also anonymous functions, 
+which means there is no way to declare an arrow function the way we do a function declaration function doctorize() {..}. 
+You always have to stick it into a variable.
+
+eg: function inchToCM(inches){
+    const cm = inches * 2.54;
+    return cm;
+}
+This takes 4 lines of code 
+
+const inchToCM = function (inches) {
+    return inches * 2.54;
+}
+Takes 2 lines of code and all we have done is turned it into an anonymous function and stored it in a variable.
+
+- Diffirent ways to write an Arrow Function -
+Now we will go to the right of the parenthesis and add what is called a fat arrow =>.
+In programming, -> is referred to as a skinny arrow and => is referred to as a fat arrow.
+
+const inchToCM = (inches) => {
+    return inches * 2.54;
+}
+
+- Implicit and Explicit Returns -
+An explicit return is when you type the return keyword before returning a value such as -
+eg: return inch * 2.54;
+
+An implicit return is returning it without actually having to type the keyword return. 
+Arrow functions allow us to use implicit returns.
+eg: const inchToCM = (inches) => {
+  return inches * 2.54;
+};
+To get rid of the explicit return:
+- first put the function on one line
+- then delete the curly brackets{ }
+- finally, delete the return keyword
+
+const inchToCM = (inches) => inches * 2.54;
+
+What we did there is:
+- we made an arrow function inchToCM which takes in one parameter, inches
+- modified the function to implicitly return the value.
+
+The way we can tell this is an implicit return is that:
+- it's all on one line
+- there is no return keyword
+- there are no curly brackets
+
+Finally, and this is more of a stylistic choice, if there is only ever one parameter for your function, 
+ou can actually get rid of the parenthesis around the parameter as well.
+
+const inchToCM = inches => inches * 2.54;
+
+For codes containing more than one parameter, we need to use parenthesis and more than one return statement.
+eg: function makeABaby(first, last) {
+        const baby = {
+        name: `${first} ${last}`,
+        age: 0,
+    };
+  return baby;
+} 
+can be made into 
+const makeABaby = (first, last) => ({ name: `${first} ${last}`, age: 0 });
+
+Now... is there a benefit of having the function this way or how we did it originally?
+You're not really getting much benefit, in fact the way we had it originally was a bit more readable.
+There is nothing wrong with doing a regular function, because you want to think about your future self.
+
+- IIFE (iffy) -
+An IIFE is a function that is an immediately invoked function expression.
+ Example:
+function(){
+  console.log('Running the Anon function');
+  return `You are cool`;
+}
+
+Another way to run this function is what is called an immediately invoked functional expression:
+
+(function () {
+  console.log("Running the Anon function");
+  return `Your are cool`;
+})();
+
+What is the benefit of doing something like that?
+It used to be very popular before we had modules and block scope.
+
+- Methods -
+A method is simply a function that lives inside of an object.
+
+If we take a look at the function console.log in the browser, we will see that he has been lying to us.
+log() is actually the function that lives inside of console, and console is actually an object.
+
+We have a special word to describe functions that live inside of an object and we call those methods.
+
+Example:
+const wes = {
+  name: "Wes Bos",
+  sayHi: function () {
+    console.log("Hey wes!");
+    return "Hey Wes!";
+  },
+};
+wes.sayHi() is a method. You make it a property on your object and you set it to a function.
+
+const wes = {
+  name: "Wes Bos",
+  // Method!
+  sayHi: function sayHi() {
+    console.log("Hey Wes!");
+    return "Hey Wes!";
+  },
+  //Short hand Method
+  yellHi() {
+    console.log("HEY WESSSSS");
+  },
+};
+If you refresh the browser and type wes.yellHi(), it will work.
+What we did here is instead of writing sayHi: function() (which does work), we can get rid of the function keyword and the :. 
+That makes it into a property, yellHi(), which is set to the function yellHi.
+
+There is another way, which is an arrow function.
+const wes = {
+  name: 'Wes Bos',
+  // Method!
+  sayHi: function sayHi() {
+    console.log('Hey Wes!');
+    return 'Hey Wes!';
+  },
+  // Short hand Method
+  yellHi() {
+    console.log('HEY WESSSSS');
+  },
+  // Arrow function
+  whisperHi: () => {
+     console.log('hiii wess im a mouse');
+  }
+};
+
+whisperHi() is an arrow function that doesn't take any arguments, but it could take in arguments if you wanted.
+Those are 3 different ways to do methods and the shorthand is the most common way.
+
+- Callback Functions -
+So a callback function is just a regular function, but we use that name for something that will happen after something is done.
+The easiest way to define a callback function is either when someone clicks something, run this. 
+Or when this amount of time has passed, run this.
+What you need to know is that a callback function is a function that gets passed into another function and then it is called by the browser at a later point in time.
+
+1. Click Callback
+Example:
+const button = document.querySelector(".clickMe");
+button.addEventListener("click", wes.sayHi);
+
+When that click happens, we can pass it to any function that we want.
+What is happening there is that .addEventListener() is an event listener that we are listening for a click on, and the callback function is wes.sayHi().
+It's a function that we give it access to.
+Notice that we are not running it there, we are just saying here is the function, when someone clicks the button, please call it.
+That is what is referred to as a callback function.
+
+2. Timer Callback
+There are a couple of ways to do timers, but the most common way is to use setTimeout().
+It takes two things:
+1. a function to call after a certain amount of time
+2. a duration in milliseconds (after how long should I run this)
+
+Example:
+setTimeout(() => {
+  console.log("DONE TIME TO EAT");
+}, 1000);
+
+This will run the function after 1 second

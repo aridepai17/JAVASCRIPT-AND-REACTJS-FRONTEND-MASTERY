@@ -1,0 +1,36 @@
+- Propagation -
+It is possible to be clicking on multiple things as a certain time. That is what is referred to as propagation.
+The way you can prevent that is with a method on the event that is called stopPropagation.
+
+window.addEventListener('click', function(event) {
+  console.log('you clicked the window');
+  console.log(event.target);
+})
+
+Now anytime we click on something, it will show us what we are actually clicking on.
+So even though we are listening on the window, it will show what the actual element you clicked on is, whether it's a button or an h2.
+
+- Capture -
+Capture is kind of like the opposite.
+If you have an element that is very low in the DOM, like a td (or in our case, a button), and we are listening on the td, when someone makes a click, we actually are clicking on the document, 
+then clicking on the html, then the body, the table, and then finally end up clicking the button.
+If there were divs and other things wrapped inside, the click would go through those as well because it goes through every single element along the way.
+It doesn't do anything, but it is keeping track of where it passed through.
+Then, the event starts to bubble up.
+Once it gets to the very lowest DOM node it can find (a raw buy button in our case or a strong tag), and then it begins what is called bubbling.
+What that means is it will trigger a click on the strong tag, then a click on the button, then on the body, the html and finally the document. That is what is meant by bubbling up.
+We do have the ability to stop the event as part of the capture phase.
+
+However, there is an option for when you listen to any event, to listen during the capture phase.
+That means that if we want to listen for a click on the window first and then stop it from going any further, we can do that.
+
+function handleBuyButtonClick(e) {
+  const button = e.target;
+  // console.log(button.textContent);
+  // console.log(parseFloat(e.target.dataset.price));
+  console.log(e.target);
+  console.log(e.currentTarget);
+  console.log(e.target === e.currentTarget);
+  // stop this event from bubbling up
+  e.stopPropagation();
+}

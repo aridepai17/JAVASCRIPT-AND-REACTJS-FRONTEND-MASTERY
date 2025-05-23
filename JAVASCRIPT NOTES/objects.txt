@@ -1,0 +1,15 @@
+- Objects -
+Objects in JavaScript are the biggest building block and almost everything in JavaScript is an object.
+Objects are used for collections of data or collections of functionality.
+You need to know that when something is an object in JavaScript, it's because we want to group things together.
+
+Example 
+const person = {
+    first: 'James',
+    last: 'Bond',
+    age: 30,
+}
+
+console.log(person.first); // James
+console.log(person.last); // Bond
+console.log(person.age); // 30

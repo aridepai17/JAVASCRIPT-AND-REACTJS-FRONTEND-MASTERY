@@ -1,0 +1,27 @@
+- Variables and Statements - 
+There are three different ways to maek a variable, which in JavaScript we refer to as declaring a variable.
+1. var
+2. let
+3. const
+
+- var -
+To  declare a variable using var, we use the keyword var followed by the name of the variable.
+
+eg: var name = "Memento";
+
+- let -
+let is a newer way to declare variables.
+It is block scoped, meaning it is only accessible within the block it is declared in.
+eg: let name = "Memento";
+
+- const -
+const is a newer way to declare variables.
+It is also block scoped, but it is used to declare variables that are not meant to be reassigned.
+eg: const name = "Memento";
+
+The namings of these aren't great. 
+Const means constant, but it's still called a variable.
+
+- Differences -
+The values of var and let can be updated and reassigned.
+The value of const cannot be reassigned.

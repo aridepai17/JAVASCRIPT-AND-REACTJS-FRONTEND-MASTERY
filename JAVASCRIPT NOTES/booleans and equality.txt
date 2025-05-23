@@ -1,0 +1,38 @@
+- Types: Booleans and Equality -
+
+- Booleans -
+The final type in JavaScript is called a boolean. A boolean is either true or false, it's like a light switch, it's on or off and that is it.
+We use booleans for logic such as if statements in our JavaScript code.
+Booleans can be manually set or calculated.
+
+Example:
+const isTrue = true;
+const isFalse = false;
+
+const age = 18;
+const isAdult = age > 18;
+console.log(isAdult); // false
+
+- Equality -
+1. ' = '
+One equal sign = is used to assign a value to a variable
+eg: const name = "Memento";
+eg: const age = 18;
+eg: const isAdult = age > 18;
+
+2. ' == '
+Two equal signs == is used to compare two values and check if they are equal.
+eg: console.log(1 == 1); // true
+eg: console.log(1 == 2); // false
+eg: console.log(1 == "1"); // true
+
+3. ' === '
+Three equal signs === is used to compare two values and check if they are equal and of the same type.
+eg: console.log(1 === 1); // true
+eg: console.log(1 === 2); // false
+eg: console.log(1 === "1"); // false
+
+For double equals == and triple equals ===, know that you should almost always be using triple equals.
+There are some edge cases where you can use double equals, but almost all the time it's better to use triple equals.
+Triple equals will always check for both value and type.
+

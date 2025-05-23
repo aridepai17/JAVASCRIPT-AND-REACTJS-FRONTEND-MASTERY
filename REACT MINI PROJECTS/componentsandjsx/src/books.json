@@ -1,0 +1,20 @@
+[
+  {
+    "image": "https://m.media-amazon.com/images/I/41AH3HNFh0L._SY445_SX342_PQ95_.jpg",
+    "title": "Broken Country",
+    "publisher": "by Clare Leslie Hall",
+    "price": "$3.69"
+  },
+  {
+    "image": "https://m.media-amazon.com/images/W/MEDIAX_1215821-T2/images/I/51U+yFzdZ5L._SY445_SX342_.jpg",
+    "title": "The Let Them Theory",
+    "publisher": "by Mel Robbins",
+    "price": "$5.59"
+  },
+  {
+    "image": "https://m.media-amazon.com/images/W/MEDIAX_1215821-T2/images/I/419AA3mTIrL._SY445_SX342_.jpg",
+    "title": "Beyond Good and Evil",
+    "publisher": "by Friedrich Nietzsche",
+    "price": "$4.99"
+  }
+]

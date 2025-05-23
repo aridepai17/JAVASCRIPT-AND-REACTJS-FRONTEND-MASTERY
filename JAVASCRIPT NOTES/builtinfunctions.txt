@@ -1,0 +1,55 @@
+- Built-in Funcions - 
+1. Math.max() - It will return the largest number from a list of numbers.
+eg: Math.max(1, 2, 3) // 3
+eg: Math.max(1, 2, 3, 4, 5) // 5
+eg: Math.max(1, 2, 3, 4, 5, 6) // 6
+eg: Math.max(1, 2, 3, 4, 5, 6, 7) // 7
+
+2. Math.min() - It will return the smallest number from a list of numbers.
+eg: Math.min(1, 2, 3) // 1
+eg: Math.min(1, 2, 3, 4, 5) // 1
+eg: Math.min(1, 2, 3, 4, 5, 6) // 1
+eg: Math.min(1, 2, 3, 4, 5, 6, 7) // 1
+
+3. Math.abs() - It will return the absolute value of a number.
+eg: Math.abs(-1) // 1
+eg: Math.abs(1) // 1
+eg: Math.abs(-100) // 100
+eg: Math.abs(100) // 100
+
+4. Math.sqrt() - It will return the square root of a number.
+eg: Math.sqrt(4) // 2
+eg: Math.sqrt(9) // 3
+eg: Math.sqrt(16) // 4
+eg: Math.sqrt(25) // 5
+
+5. Math.pow() - It will return the power of a number.
+eg: Math.pow(2, 3) // 8
+eg: Math.pow(2, 4) // 16
+eg: Math.pow(2, 5) // 32
+eg: Math.pow(2, 6) // 64
+
+6. Math.PI - It will return the value of pi.
+eg: Math.PI // 3.141592653589793
+
+7. parseFloat() - It will return a floating point number from a string.
+eg: parseFloat("3.14") // 3.14
+eg: parseFloat("3.14abc") // 3.14
+eg: parseFloat("3.14pqafj3.54") // 3.14 
+eg: parseFloat("3.14abc3.14") // 3.14
+
+8. parseInt() - It will return an integer from a string.
+eg: parseInt("3.14") // 3
+eg: parseInt("3.14abc") // 3
+eg: parseInt("3.14pqafj3.54") // 3
+eg: parseInt("3.14abc3.14") // 3
+
+9. Date.now() - It will return the current date and time in milliseconds since January 1, 1970.
+eg: Date.now() // 1633036800000
+
+10. ScrollTo() - It will scroll to a specific position in the document.
+eg: window.scrollTo(0, 0) // scroll to the top of the page
+eg: window.scrollTo(0, 100) // scroll to 100px from the top of the page
+eg: window.scrollTo(0, 200) // scroll to 200px from the top of the page
+eg: window.scrollTo(0, 300) // scroll to 300px from the top of the page
+

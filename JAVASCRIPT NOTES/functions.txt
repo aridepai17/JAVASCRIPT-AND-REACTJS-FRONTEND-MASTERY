@@ -1,0 +1,56 @@
+- Functions -
+A function can do anything, and the real power of JavaScript comes when you define your own functions.
+Functions are a way to group code together and give it a name.
+
+- Defining a Function - 
+First you type function and then the name of the function.
+Example: 
+// function definition
+function calculateBill() {
+  // this is the function body
+  console.log("Running Calculate Bill!!");
+}
+
+// function call or function invocation
+calculateBill();
+
+- Returning Values -
+
+function calculateBill() {
+  console.log("Running Calculate Bill!!");
+  const total = 100 * 1.13;
+  console.log(total);
+  return total;
+}
+myBill = calculateBill();
+console.log(`Total: ${myBill}`); // Total: 113
+
+Variables that are created inside of a function are only available within that function, which is called block scoping.
+It is not available outside of it.
+When we called calculateBill() earlier, we got undefined returned in the console. To fix that, we need to return total.
+return is a keyword in JavaScript.
+
+The total variable is still not available to us. That is because we need to capture (another buzz word) the result of the function or capture the returned value of the function into a variable.
+That will print out the value and message in the console.
+
+You may be wondering why we have two variables to hold the same value, total within calculateBill() and myTotal below the function.
+The reason is that total variable is a temporary variable.
+Since total is created inside of the function, it is only ever available inside of calculateBill and when the function is done running, that variable is cleaned up (or what is called garbage collected in JavaScript and it's no longer needed).
+If you ever want to capture the value returned from calculateBill(), you have to stick it into a variable before you can go ahead and display it.
+
+
+- DRY (Don't Repeat Yourself) -
+DRY is a programming principle that states that you should not repeat yourself.
+This means that you should not write the same code over and over again.
+Instead, you should create a function that does the work for you.
+
+function calculateBill(billAmount, taxRate) {
+  const total = billAmount ( 1 + taxRate );
+  console.log(total);
+  return total;
+}
+myTotal1 = calculateBill(100, 1.13);
+myTotal2 = calculateBill(200, 1.13);
+myTotal3 = calculateBill(300, 1.13);
+console.log(myTotal1, myTotal2, myTotal3); // 113 226 339
+

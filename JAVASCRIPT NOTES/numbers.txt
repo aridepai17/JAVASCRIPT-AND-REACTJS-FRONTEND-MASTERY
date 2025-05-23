@@ -1,0 +1,47 @@
+- Types: Numbers -
+There is only one type of number in JavaScript, which is simply number.
+typeof is a keyword in JavaScript that allows you to check the type of a value.
+
+Numbers in JavaScript are pretty simple.
+You can create an integer, which is a whole number (100), or you can create a float which is a number that has a decimal (100.5).
+Both are used in the same type of number.
+There is multiplication, division, addition and subtraction available to us.
+
+- Helper Methods -
+1. Math.round() - It will return to you the number that was passed in, rounded up or down depending on the number.
+eg: Math.round(4.5) // 5
+eg: Math.round(4.4) // 4
+eg: Math.round(4.6) // 5
+
+2. Math.floor() - It will return to you the number that was passed in, rounded to the lower end of that number.
+eg: Math.floor(4.5) // 4
+eg: Math.floor(4.4) // 4
+eg: Math.floor(4.6) // 4
+
+3. Math.ceil() - It will return to you the number that was passed in, rounded to the higher end of that number.
+eg: Math.ceil(4.5) // 5
+eg: Math.ceil(4.4) // 5
+eg: Math.ceil(4.6) // 5
+
+4. Math.random() - It will return to you a random number between 0 and 1.
+eg: Math.random() // 0.123456789
+eg: Math.random() // 0.987654321
+eg: Math.random() // 0.456789123
+
+- Modulo and Power operators -
+Along with multiplication, division, subtraction and addition, we have two more operators which are called the modulo and the power.
+
+1. Modulo - It is the remainder of a division.
+eg: 10 % 3 // 1
+eg: 10 % 2 // 0
+eg: 10 % 5 // 0
+
+2. Power - It is used to raise a number to a power.
+eg: 2 ** 3 // 8
+eg: 2 ** 4 // 16
+eg: 2 ** 5 // 32
+
+- Nan -
+Nan is a special value in JavaScript that stands for Not a Number.
+NaN is a type of "number", which is confusing since it means not a number.
+

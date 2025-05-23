@@ -1,0 +1,43 @@
+- JavaScript Comments - 
+A /* comment will open up what is called a block-element. 
+You can colse the block element comment anywhere you wish to close it.
+
+- Difference between Single Quotes and Double Quotes and Backticks -
+Single quotes and double quotes are the same in JavaScript.
+The only reason that we have them both is because if you had a sentence like const sentence = 'she's so cool';, 
+it would break your JavaScript because the JavaScript interprets the apostrophe as closing the string.
+So you have two options to fix this:
+eg: const sentence = 'she\'s so cool \\'; -> Escaping the apostrophe
+eg: const sentence = "she's so cool"; -> Using double quotes
+
+Another bummer is sometimes you want to use both, for example let's say you wanted text that said
+const sentence = "she's so "cool""
+You would have to escape the double quotes like so -
+const sentence = "she's so \"cool\"";
+The third option is using backticks. With backticks, you could simply do -
+const sentence = `she's so "cool"`;
+Backticks are used for string interpolation.
+
+The only downside to this approach is if you needed a backtick in your string, you would need to escape it like so -
+const sentence2 = `she\`s's so "cool"`;
+That is one of the benefits to using backticks.
+
+- Putting String on Multiple Lines -
+If you want to, you have to put a backslash at the end of every single line, and that will allow you to put a string on multiple lines.
+const song = 'Ohhh\
+\
+ya\
+\
+I like\
+\
+pizza';
+
+- Concatenation and Interpolation - 
+Concatenation is the process of joining two strings together.
+eg: const hello = "hello" + "Nice to meet you.";
+
+Interpolation is the process of inserting variables into strings.
+eg: const hello: "hello" + name + "Nice to meet you.";
+With backticks, we can interpolate the string like -
+const hello = `hello ${name} Nice to meet you.`;
+This is a lot cleaner and easier to read.

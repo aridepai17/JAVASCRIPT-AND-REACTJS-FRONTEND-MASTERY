@@ -1,0 +1,20 @@
+- Null and Undefined -
+There are two ways to sort of express "nothing" in JavaScript, and that is with undefined and null.
+
+- Undefined -
+If you create a variable and don't set anything to it, it will be undefined.
+eg: let name;
+console.log(name); // undefined
+
+undefined is something that has been created (a variable), but has not yet been defined (given a value).
+The same thing goes for properties on an object. If you type in the console person.dog it will return undefined.
+Why? Because there is nothing there. That is what undefined is.
+It comes about when you try to access a variable that has been created but not given a value.
+
+- Null -
+Null is a value of nothing, whereas undefined is a variable that has not yet had a value set to it.
+Example:
+let firstname;
+let name = null;
+console.log(firstname); // undefined
+console.log(name); // null

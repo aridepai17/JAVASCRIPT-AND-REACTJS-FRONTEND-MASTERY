@@ -264,4 +264,32 @@ setTimeout(() => {
   console.log("DONE TIME TO EAT");
 }, 1000);
 
-This will run the function after 1 second
+This will run the function after 1 second.
+
+The difference between a method and a function is that a method is just a function that lives inside of an object.
+
+const wes = new Object({
+  name: "wes",
+  propertyToCheck: "NEVER",
+  age,
+  "cool-dude": true,
+  "really cool": false,
+  "777": true,
+  dog: "snickers",
+  clothing: {
+    shirts: 10,
+    pants: 2
+  },
+  sayHello: function(greeting = "Hey") {
+    return `${greeting} ${this.name}`;
+  }
+});
+
+You may be working what is the this keyword that you use in the sayHello function when you call ${this.name}.
+Like we have mentioned in the past, when you take a look at a method, and if you look to the left of the dot, this will always be equal to the left of the dot.
+So in this case, ${this.name} is going to be equal to "wes" because that is the value of the name property on our object.
+You can access the other properties using the this keyword too.
+
+The reason you use the this keyword instead of using ${wes.name} within the sayHello function is because when we get into prototyping, you are going to see how you can use methods like sayHello on multiple people rather than just on a person named wes.
+
+

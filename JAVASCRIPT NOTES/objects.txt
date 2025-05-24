@@ -13,3 +13,101 @@ const person = {
 console.log(person.first); // James
 console.log(person.last); // Bond
 console.log(person.age); // 30
+
+Objects are another fundamental building block of JavaScript, 
+just like strings, numbers and booleans. Actually, almost everything in JavaScript is an object.
+
+Objects allow us to group together properties and values, or keys and values is what they are often called (throughout the course Wes will be saying properties and values).
+Objects have many uses from storing related data to storing functionality, all the way through to creating your own custom types.
+Objects are used for when the order of the properties does not matter.
+
+- Creating an object - 
+const person = new Object({
+  name: "wes",
+  age: 100
+});
+
+The property is on the left, and then there is a colon and then we have the value on the right.
+The values of an object can be any type (string, function, boolean, other objects, arrays etc).
+
+
+const person = new Object({
+  name:'wes',
+  age,
+  'cool-dude': true,
+  'really cool dude': false,
+  '777': true,
+});
+
+After each property, you might notice that we add a comma.
+recommends adding a comma after the last property in the object, even if there is nothing that comes after it.
+That is what is called a trailing comma or a comma dangle.
+It's not totally necessary, but putting a trailing comma on there will make sure that the next time you come around and add in a property, we can easily add it.
+What happens all the time is if you don't leave a trailing comma, the next time you go to add a property it's very easy to forget to include the comma.
+
+Other things you can do is add nested properties or nested objects.
+
+const person = new Object({
+  name: "wes",
+  age,
+  "cool-dude": true,
+  "really cool": false,
+  "777": true,
+  dog: "snickers",
+  clothing: {
+    shirts: 10,
+    pants: 2
+  }
+});
+
+As you can see, now the person object has a nested object clothing which has shirt and pants properties.
+You can nest objects as deep as you could possibly want.
+
+You can add new properties to an object even after it has been created, using the dot notation.
+person.job = 'Web Developer';
+Now if you were to take a look at it in the console, you will see the job property has been added and is now part of the object.
+
+Even though properties on the wes object can change, the actual object itself will can never be overwritten entirely.
+If you do ever want to freeze the values in an object, what you can do is create a frozen object.
+
+const wesFroze = Object.freeze(wes);
+
+That will freeze the original object wes, and return it. In this case, wes and wesFroze are exact same objects.
+freeze() returns the exact same object that was passed into the function. It does not create a copy.
+The word in programming that we use to describe something that cannot be changed is immutable. Mutation is changing a value.
+
+- Accessing properties -
+You simply write the object name then a set of square brackets, and between the square brackets you give the property name in strings, like so -
+console.log(wes.age);
+console.log(wes["age"]);
+
+const wes = new Object({
+  name: "wes",
+  propertyToCheck: "NEVER",
+  age,
+  "cool-dude": true,
+  "really cool": false,
+  "777": true,
+  dog: "snickers",
+  clothing: {
+    shirts: 10,
+    pants: 2
+  }
+});
+If the property name is stored in a variable, you must use square brackets.
+There is another reason, which sometimes the properties of your object are not referenceable via JavaScript, and instead you have to use a string.
+
+
+However, if you try to access a nested property on a property that does not exist, it will throw an error.
+That is because there is no property that exists on that undefined value.
+Because wes.jobs is undefined, there are no properties that live inside of that.
+
+- Deleting Properties -
+To delete a property object you use the delete keyword.
+console.log(delete wes.job);
+Now if you take a look, you will see it is undefined.
+
+
+
+
+

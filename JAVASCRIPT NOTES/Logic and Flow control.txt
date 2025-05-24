@@ -116,3 +116,15 @@ Values that are truthy or falsy will also work.
 11. empty object // truthy
 12. array with no values // truthy
 13. array with values // truthy
+
+- Coercion -
+Coercion is when you force something that is of a different type, such as a string or number, or an object or anything like that and force it into another type. 
+For example when we coerce something into a true boolean.
+
+const middle = "";
+!middle; // true
+!!middle; // false
+
+Coercion in general is the act of changing one type into another.
+
+

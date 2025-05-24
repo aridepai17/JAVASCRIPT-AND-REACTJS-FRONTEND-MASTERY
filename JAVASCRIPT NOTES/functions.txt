@@ -292,4 +292,43 @@ You can access the other properties using the this keyword too.
 
 The reason you use the this keyword instead of using ${wes.name} within the sayHello function is because when we get into prototyping, you are going to see how you can use methods like sayHello on multiple people rather than just on a person named wes.
 
+- Spread Operator -
+The easiest way to copy something is via something called a spread.
+A spread is a three dot operator and it's used for taking every single item in a object and spreading it into a new object.
+
+const person1 = {
+  first: "wes",
+  last: "bos",
+  clothing: {
+    shirts: 10,
+    pants: 2
+  }
+};
+
+const person3 = { ...person1 };
+person3.first = Larry;
+
+What you are doing there is you are assigning the variable person3 to a new object using the object literal syntax, and then using the spread operator within the object literal to copy person1.
+If you log person3, you will see that it has the same properties as person1.
+That is because the spread operator will take every single item that is in an object and spread it into the next object.
+One thing to do note is that the spread operator only goes one level deep.
+
+If you do want to do a deep clone or a deep copy of an object, of all of the properties, there are a number of different ways to do it.
+The most popular way is most likely to use something called a utility library.
+
+- Lodash -
+Lodash is a library that you can include into your script.
+It has a lot of methods that are used when working with objects and arrays.
+
+<script src="https://unpkg.com/lodash@4.17.15/lodash.js"></script>
+Now if you type _. in your console, you will see that all of the lodash values are available to us.
+
+const person3 = _.cloneDeep(person1);
+person3.first = 'Larry';
+person3.clothing.shirts = 100;
+
+person1.clothing.shirts still equals 10, because you performed a deep clone using the lodash method 
+and then modified the value only for the person3 object because person3 was no longer a reference to person1.
+
+Lodash also has methods for working with arrays.
 

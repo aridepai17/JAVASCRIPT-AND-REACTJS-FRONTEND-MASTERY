@@ -162,3 +162,101 @@ const numbers = [1, 2, 3, 4, 5];
 Array.of('wes', 'kait'); // Creates an array of the arguments passed to it -> ['wes', 'kait']
 
 createRange(start, end);
+
+- Array Instance Methods -
+1. join() method
+Display all bun types with the letters or, using join().
+join() turns the array into a string, joining each item with a comma. It takes an argument, which is what you want to join it on.
+
+const buns = ['egg', 'wonder', 'brioche'];
+console.log(buns.join()); // egg,wonder,brioche
+
+join() turns the array into a string, joining each item with a comma. It takes an argument, which is what you want to join it on.
+console.log(buns.join(' or ')); // egg or wonder or brioche
+// If you want to join it with a space, you can do that as well.
+// console.log(buns.join(' ')); // egg wonder brioche
+// If you want to join it with a dash, you can do that as well.
+// console.log(buns.join(' - ')); // egg - wonder - brioche
+
+2. split() method
+
+const foodString = "hot dogs, hamburgers, sausages, corn";
+
+If you want to turn this string into an array, it's actually not an array method, it's a string method.
+split takes in an argument, which is the character on which to split the string on.
+console.log(foodString.split(',')); // ['hot dogs', ' hamburgers', ' sausages', ' corn']
+
+split is a pretty common method that is used.
+You can call split() and pass it nothing. That will just take every letter in the string into it's own item.
+
+console.log('wes bos'.split('')) // ['w', 'e', 's', ' ', 'b', 'o', 's']
+
+3. pop() method
+
+const toppings = ['pepperoni', 'bacon', 'onions', 'olives', 'mushrooms', 'tomatoes', 'sausage', 'pickles'];
+console.log(toppings.pop()); // pickles
+
+pop() will remove the last item from the array and return it.
+console.log(toppings); // ['pepperoni', 'bacon', 'onions', 'olives', 'mushrooms', 'tomatoes', 'sausage']
+
+This is a handy method if you need to grab one off the end of the array and then work with it, and it will just take that item out of the array.
+Based on that, is this an immutable or mutable method?
+It is a mutable method because it mutates the original array. It takes it off the original array
+
+4. push() method
+The next step is to put it back with push().
+// take the last item off toppings with pop()
+const lastItem = toppings.pop();
+console.log(lastItem); // pickles
+// add it back with push()
+const t2 = toppings.push(lastItem);
+console.log(t2); // 8
+
+push() is a mutable method because it mutates the original array. It takes it off the original array.
+You don't have to put it into a variable if you don't need it, so in our case we will remove the declaration of t2 and instead just use toppings.push(lastItem) and remove the console.log(t2);.
+
+5. shift() and unshift() method
+
+// take the first item off toppings with shift()
+const firstItem = toppings.shift();
+console.log(firstItem); // pepperoni
+// add it back with unshift()
+const t2 = toppings.unshift(firstItem);
+console.log(t2); // 8
+
+shift() and unshift() are both mutable methods because they mutate the original array. 
+They take it off the original array.
+
+6. indexOf() method
+indexOf() will find you the first instance of the argument you pass, whereas lastIndexOf will find you the last instance of it.
+
+const toppings = ['pepperoni', 'bacon', 'onions', 'olives', 'mushrooms', 'tomatoes', 'sausage', 'pickles'];
+console.log(toppings.indexOf('sausage')); // 6
+console.log(toppings.lastIndexOf('sausage')); // 6
+
+7. includes() method
+You can call includes() to check if the array contains that item.
+
+const toppings = ['pepperoni', 'bacon', 'onions', 'olives', 'mushrooms', 'tomatoes', 'sausage', 'pickles'];
+console.log(toppings.includes('olives')); // true
+console.log(toppings.includes('sausage')); // true
+console.log(toppings.includes('pineapple')); // false
+
+8. reverse() method
+You can call reverse() to reverse the order of the array.
+
+const toppings = ['pepperoni', 'bacon', 'onions', 'olives', 'mushrooms', 'tomatoes', 'sausage', 'pickles'];
+const toppingsReversed = toppings.reverse();
+console.log(toppingsReversed); // ['pickles', 'sausage', 'tomatoes', 'mushrooms', 'olives', 'onions', 'bacon', 'pepperoni']
+
+If you want to do it immutably without modifying the original toppings array, you can create a new array, spread toppings into it, and then call reverse() directly on it like so -
+
+const toppingsReversed = [...toppings].reverse();
+console.log(toppingsReversed); // ['pickles', 'sausage', 'tomatoes', 'mushrooms', 'olives', 'onions', 'bacon', 'pepperoni']
+
+9. sort() method
+You can call sort() to sort the array.
+
+const toppings = ['pepperoni', 'bacon', 'onions', 'olives', 'mushrooms', 'tomatoes', 'sausage', 'pickles'];
+const toppingsSorted = toppings.sort();
+console.log(toppingsSorted); // ['bacon', 'mushrooms', 'olives', 'onions', 'pepperoni', 'pickles', 'sausage', 'tomatoes']

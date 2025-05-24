@@ -1,0 +1,81 @@
+- Timers and Intervals -
+If you want to run something after 5 seconds, you would use a timeout. 
+If you want to run something every 5 seconds, you would use an interval.
+
+function buzzer() {
+  console.log("ENNNNGGGG");
+}
+setTimeout(buzzer, 500);
+Now if you refresh the HTML page, you should see "ENNNNGG" in the console after half a second.
+
+function buzzer() {
+  console.log("ENNNNGGGG");
+}
+console.log("Starting");
+setTimeout(buzzer, 500);
+console.log("Finishing!");
+The JavaScript will run, it will log "starting", set off the timer, queue it up which is basically saying "Ok I have this function called buzzer which I am going to run after 500 milliseconds, but I've got stuff to do so I'm going to keep going", 
+so it moves on to the next line of code which is logging "finishing".
+
+That is what is referred to as the asynchronous nature of JavaScript.
+
+As soon as it queues up the buzzer to be run after 500 milliseconds, it will go off onto the next line of code, and only come back to buzzer when it's time.
+That is why it is called a callback. Because JavaScript will come back and call it at a later point in time.
+
+It is a pretty common thing to want to wait a couple of milliseconds before doing something.
+
+- Intervals -
+Intervals work exactly the same.
+
+You write setInterval() and then it takes 2 arguments:
+1. a reference to a function like buzzer
+2. how often you'd like to run it
+
+To run buzzer every 100 milliseconds you would write the following:
+setInterval(buzzer, 100);
+
+The biggest gotcha is that intervals will not run immediately, you can code your own function for that.
+
+- Clearing Timeouts and Intervals -
+
+function destroy() {
+  document.body.innerHTML = `<p>DESTROYED</p>`;
+}
+setTimeout(destroy, 2000);
+
+If you refresh the page, you will see the text "DESTROYED" displayed after 2 seconds.
+The question is how do you stop the timer from running?
+Well, what you can do is save reference to the timer when declaring it like so -
+const bombTimer = setTimeout(destroy, 5000);
+
+const bombTimer = setTimeout(destroy, 5000);
+window.addEventListener("click", function() {
+  console.log("You clicked! You saved the world!");
+  // How do you stop the timer from running?!
+  clearTimeout(bombTimer); // STOP THE TIMER FROM RUNNING
+});
+
+Now if you refresh the page, and you don't click anywhere for 5 seconds, you will see the destroy text.
+However, if you do click within the first 5 seconds, the page will never be destroyed.
+If for any reason you need to stop your timer, save reference to it in a variable.
+There is no other way to clear the timer other than having a saved reference to it in a variable which is a number.
+
+The intervals work exactly the same way.
+Create an interval that logs the poop emoji 💩 and hehehe every 10 milliseconds like so -
+setInterval(function() {
+  console.log(`💩`);
+  console.log("Hehehe");
+}, 10);
+
+To clear that, you could save reference to it and then call clearInterval() and pass it the reference, like so -
+const poopInterval = setInterval(function() {
+  console.log(`💩`);
+  console.log("Hehehe");
+}, 10);
+If you refresh the page and open the console, you can type into the console clearInterval(poopInterval) and that should stop the interval from running.
+
+f you wanted to clear that after five seconds, you could simply make a setTimeout that you pass an anonymous function that called clearInterval(poopInterval) after 3 seconds like so -
+setTimeout(function() {
+  clearInterval(poopInterval);
+}, 3000);
+If you refresh the page, you will see the logs stop after 3 seconds because you have cleared it.

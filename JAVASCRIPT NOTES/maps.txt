@@ -1,0 +1,65 @@
+- Maps -
+It is very similar to an object, however there are a couple of key differences.
+The way you create a map is using the new keyword followed by Map() with a capital M.
+
+const myMap = new Map();
+
+In order to add items to a map, there are the following APIs:
+1. set - .set()
+2. has - .has()
+3. delete - .delete()
+
+- Set - 
+You take myMap and you set() it, to which you pass 2 arguments:
+1. the key of the map will be, so let's say "name"
+2. the value you want to set
+
+myMap.set('name', 'wes');
+console.log(myMap); // Map(1) { 'name' => 'wes' }
+
+It is in the map, but it is a property on the map, not an actual entry in our map.
+One big benefit of a map is the keys can be any type other than just using a string or an allowed variable name.
+A map allows you to put any value into the key and into the value (any type of value).
+In JavaScript, we have these things called dictionaries. A dictionary is just a way to store additional metadata about something else.
+
+const person1 = {
+  name: 'wes',
+  age: 200
+}
+myMap.set(person1, 'Really cool');
+console.log(myMap); // Map(2) { 'name' => 'wes', { name: 'wes', age: 200 } => 'Really cool' }
+myMap.get(person1); // 'Really cool'
+myMap.has(person1); // true 
+
+With an object, they could be jumbled. It would be weird to display the prizes in non-ascending or descending order.
+But when you use a map, it's guaranteed to maintain order.
+
+When do you use a map over an object?
+You should use a map if you do need to maintain the order of your items.
+One downside to a map is there is no literal, meaning that you always have to create a new map that way and then set the items in it.
+
+- JSON -
+JSON is a way to store data in a structured format.
+JSON is a string format, so it is not an object.
+
+const person = {
+  name: 'wes',
+  age: 100
+}
+
+If you want to send that object to somebody, you would turn it into text. Text is easily sent via servers, from one website to another.
+Anytime you want to transfer an object or an array, you have to first convert that to a portable format.
+This one way that all programming languages understand is JSON.
+You can turn an object into json using JSON.stringify(). It takes in 1 argument, which is the object you want to convert.
+It takes the object and converts it into a string, which you can send very easily, and then the person on the other end can turn it back into an object using something like -
+
+JSON.parse(`{ "name": "wes", "age": "100" }`);
+
+JSON stands for JavaScript Object Notation. However it has been implemented by every single language out there.
+JSON is amazing, however, if you have a map, currently JSON does not handle maps.
+If you try JSON.stringify(myMap) you will see the following error and get an empty object because it is not aware of maps yet.
+
+There is this thing called JSON 5 which is trying to improve JSON but until that is ready, if you want to send your map content you have to convert it to an object currently.
+You can do that using Object.fromEntries(myMap), which tries it's best to convert it to a regular object.
+However, you will see if you use any of the benefits of a map, it falls apart when you turn it into JSON.
+

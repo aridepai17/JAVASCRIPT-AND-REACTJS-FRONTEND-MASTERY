@@ -1,0 +1,257 @@
+- Looping and Iterating -
+A side effect is when you are inside of a function and you reach outside of that function to do something else.
+
+While side effects are totally fine, because at some point you do need to do things that reach outside the function, there are a whole slew of other types of loops that are simply taking in data, doing something with that data and then returning the data that has been modified, massaged or transformed in some way.
+That is where we get into map, filter, and reduce.
+
+That is a transformation of that data and are often referred to as pure functions.
+Pure functions take in data, they return data, they always work exactly the same way given the data that's inputted, it returns the exact same thing. They don't reach outside themselves to do that.
+
+- Map - 
+Map is like a machine in a factory. It takes in data, performs an operation and then spits it out on the other side.
+map will always produce the same length of the array as it starts with.
+
+
+const faces = ['😃', '🤠', '🤡', '🤑', '😵', '🌞', '🐶', '😺'];
+
+function addArms(face) {
+  return `👋 ${face} 👋`;
+} 
+
+const toys = faces.map(addArms);
+console.log(toys); // ['👋 😃 👋', '👋 🤠 👋', '👋 🤡 👋', '👋 🤑 👋', '👋 😵 👋', '👋 🌞 👋', '👋 🐶 👋', '👋 😺 👋']
+
+
+const fullNames = ['wes', 'kait', 'poppy'].map(name => `${name} bos`);
+console.log(fullNames); // ['wes bos', 'kait bos', 'poppy bos']
+
+function bosify(name) {
+  return `${name} Bos`;
+}
+const fullNames = ['wes', 'kait', 'poppy'].map(bosify);
+console.log(fullNames); // ['wes Bos', 'kait Bos', 'poppy Bos']
+
+const fullNames = ['wes', 'kait', 'poppy'].map(capitalize).map(bosify);
+console.log(fullNames); // ['Wes Bos', 'Kait Bos', 'Poppy Bos']
+
+You can chain as many maps as you want because each returns a new array until it reaches the last one.
+
+
+const orderTotals = [342, 1002, 523, 34, 634, 854, 1644, 2222];
+Lets say we want to add tax to all items in the orderTotals array.
+const orderTotalsWithTax = orderTotals.map(total => total * 1.13); 
+console.log(orderTotalsWithTax); // [386.46, 1132.26, 591.59, 38.42, 715.62, 965.62, 1859.72, 2511.46]
+
+
+You can take a string and call repeat on it and JavaScript will repeat that however many times you like, like so -
+console.log('x'.repeat(10)); // xxxxxxxxxx
+
+With Array(3), it will create 3 empty spots in an array, much like Array.from().
+However if you want to fill them with the exact same thing, you can use Array(3).fill('x').
+
+
+const people = [
+  {
+    birthday: "April 22, 1993",
+    names: {
+      first: "Keith",
+      last: "Buckley",
+    },
+  },
+  {
+    birthday: "January 3, 1975",
+    names: {
+      first: "Larry",
+      last: "Heep",
+    },
+  },
+  {
+    birthday: "February 12, 1944",
+    names: {
+      first: "Linda",
+      last: "Bermeer",
+    },
+  },
+];
+
+const cleanPeople = people.map(function(person) {
+  console.log(person);
+}) 
+It is fine to log within a map function, just don't ever do things like updating the DOM inside of a map function. That is what a forEach is for.
+
+The first thing we need this function to do is get the person's birthday, and then figure out how old they are, and then return their full name and birthday in an object.
+First we have to get their birthday, which is stored in a string like "February 12, 1944".
+That is not very helpful to us because when you want to work with dates in JavaScript, it has to be changed over to what is called a JavaScript Date.
+You can do that within the inline map function like so -
+
+const cleanPeople = people.map(function(person) {
+  console.log(person); 
+  const birthday = new Date(person.birthday);
+  console.log(birthday); 
+})
+
+There are a number of methods on a Date in JavaScript that allow you to work with it.
+The first thing you need to do when comparing dates or trying to figure out how much time is in between two dates, is to change them into timestamps.
+
+const now = new Date();
+now.getTime();
+
+That is the number of milliseconds since January 1, 1970. That is the time when they said okay, this is when date starts. Any dates that are negative, go back from that time and any dates that are positive go forward for that time.
+There is actually a shortcut to get the timestamp and that is using Date.now(). If you try running that a few times in the console, the number should change each time.
+
+So back to our inline map function, we don't want to just grab the persons birthday and convert it to a date, we want to convert it to a full blown timestamp.
+We can do that by chaining the getTime method onto new Date(person.birthday).getTime();.
+For the now variable, use Date.now() to get the timestamp instead of new Date().
+.now() is a static method because it lives on the Date object.
+
+const cleanPeople = people.map(function(person) {
+  const birthday = new Date(person.birthday).getTime();
+  const now = Date.now();
+  const age = Math.floor(now - birthday / 31536000000);
+  console.log(age);
+  return {
+    age: age,
+    name: `${person.names.first} ${person.names.last}`,
+  }
+}) 
+
+- Filter - 
+Filter is a way to take an array and filter it down to only the items that match a specific condition.
+The way filter works is you loop over every single item in an array, and you either say yes (true) or no (false).
+If you return true that item will be in the array subset, if you return false it will take out that item from the array that is returned.
+
+const over40 = cleanPeople.filter(person => person.age > 40);
+console.log(over40); 
+If there ever is a situation where we call this filter method on an array with no people over 40 in it, it will just return to us an empty array.
+
+.find() works the exact same way except that find only finds one item in the array and returns it whereas filter will always return to you all of the items that match.
+.filter() will always return an array
+.find() will always return the item that you want.
+
+Example:
+const students = [
+  {
+    id: "11ce",
+    first_name: "Dall",
+    last_name: "Puckring",
+  },
+  {
+    id: "2958",
+    first_name: "Margarete",
+    last_name: "Brandi",
+  },
+  {
+    id: "565a",
+    first_name: "Bendicty",
+    last_name: "Woodage",
+  },
+  {
+    id: "3a16",
+    first_name: "Micki",
+    last_name: "Mattes",
+  },
+  {
+    id: "f396",
+    first_name: "Flory",
+    last_name: "Gladeche",
+  },
+  {
+    id: "de5f",
+    first_name: "Jamill",
+    last_name: "Emilien",
+  },
+  {
+    id: "54cb",
+    first_name: "Brett",
+    last_name: "Aizikowitz",
+  },
+  {
+    id: "9135",
+    first_name: "Lorry",
+    last_name: "Smallman",
+  },
+  {
+    id: "978f",
+    first_name: "Gilly",
+    last_name: "Flott",
+  },
+];
+
+const student = students.find(stud => stud.id === '565a');
+console.log(student); // { id: '565a', first_name: 'Bendicty', last_name: 'Woodage' }
+
+As you can see, the correct student record is returned.
+If that didn't match anything, what would we find?
+We would get undefined. You always want to check if something got found.
+
+const student = students.filter(stud => stud.id === '565a');
+console.log(student); // [ { id: '565a', first_name: 'Bendicty', last_name: 'Woodage' } ]
+
+- Reduce -
+Reduce is a way to take an array and reduce it down to a single value.
+.reduce() is probably one of the trickier array methods to understand because it does so much and there are a couple of different use cases for it.
+It takes in an array of data (just like map and filter) and it will return to you a result of or a single value.
+
+const orderTotals = [342, 1002, 523, 34, 634, 854, 1644, 2222];
+
+const allOrders = orderTotals.reduce();
+We need a callback function that will be run on each item in the array, which we will call tallyNumbers.
+It will take in 2 arguments because that is what the callback function of a reduce method takes.
+
+The 2 parameters it takes is the accumulator and the current value.
+The accumulator is the thing that has been handed to you from the last instance of the loop. The currentValue parameter is the current item in the array.
+We will name our parameters tally and currentTotal.
+Inside of the function, add a log of the current tally and current total, like so -
+function tallyNumbers(tally, currentTotal) {
+  console.log(`The current tally is ${tally}`);
+  console.log(`The current total is ${currentTotal}`);
+  console.log('--------');
+}
+const allOrders = ordersTotal.reduce(tallyNumbers);
+console.log(allOrders); 
+
+The first time the loop runs, the current tally is 342 and the current total is 1002.
+The second time the loop runs, we get the current tally is undefined and the current value is 523. In fact every time other than the first instance of the loop, tally is undefined.
+That is because reduce() takes in another argument which is what do you want to start the accumulator at.
+
+function tallyNumbers(tally, currentTotal) {
+  console.log(`The current tally is ${tally}`);
+  console.log(`The current total is ${currentTotal}`);
+  console.log('----------');
+  return 'tally + currentTotal';
+}
+const allOrders = orderTotals.reduce(tallyNumbers, 0);
+
+If we were to not pass an accumulator, the first loop iteration will take the first two numbers. In our case, that would still work but Wes always like to pass a default value so we know what we are starting with and so we can see what type we are starting with.
+So we start with 0, then the currentTotal is 342. Then in the next iteration, because we have returned 342 from the previous iteration, we are going to start with that as tally variable in the next iteration. We add the current value and return the tally variable to the next iteration and so on.
+A reduce will loop over items in an array and every single time that you loop over an item in an array, you have an option to return a value which you can use to accumulate values or distill them down into one value.
+Now, if we want to total the numbers, we already have them in the allOrders variable so we can simply log that variable to the console which should return to us 7255.
+
+Another Example:
+const inventory = [
+  { type: 'shirt', price: 4000 },
+  { type: 'pants', price: 4532 },
+  { type: 'socks', price: 234 },
+  { type: 'shirt', price: 2343 },
+  { type: 'pants', price: 2343 },
+  { type: 'socks', price: 542 },
+  { type: 'pants', price: 123 },
+];
+
+It is an array of objects and each object has a type and a price property on it.
+We need to figure out how many instances there are with type of pants, how many are pants, and how many are socks.
+We also want to figure out what is the total value of all of the inventory that we have.
+
+function inventoryReducer(totals, item) {
+  console.log(`Looping over ${item.type}`);
+  totals[item.type] = totals[item.type] + 1 || 1;
+  return totals;
+} 
+
+const inventoryCounts = inventory.reduce(inventoryReducer, {});
+console.log(inventoryCounts); // { shirt: 2, pants: 3, socks: 2 }
+
+const totalInventoryPrice = inventory.reduce((acc, item) => acc + item.price, 0);
+console.log(totalInventoryPrice); // 12317
+
+

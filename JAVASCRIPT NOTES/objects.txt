@@ -107,6 +107,58 @@ To delete a property object you use the delete keyword.
 console.log(delete wes.job);
 Now if you take a look, you will see it is undefined.
 
+- Objects Static Methods -
+
+const meats = {
+  beyond: 10,
+  beef: 5,
+  pork: 7,
+};
+
+You use Object.entries() when you want to put both the keys and values into an array like so:
+console.log(Object.entries(meats)); // [ [ 'beyond', 10 ], [ 'beef', 5 ], [ 'pork', 7 ] ]
+
+console.log(Object.entries(meats)); // [ [ 'beyond', 10 ], [ 'beef', 5 ], [ 'pork', 7 ] ]
+console.log(Object.keys(meats)); // [ 'beyond', 'beef', 'pork' ]
+console.log(Object.values(meats)); // [ 10, 5, 7 ]
+
+As you can see, keys() is going to give us an array of all the object keys, values() will give us an array of all the values and entries() is going to give us an array where each item is then a nested second array inside of it where the first item in the nested array is the key and the second item is the value.
+These are pretty common things to do.
+
+One pretty common way to work with those is using the forEach.
+Object.values(meats).forEach(qty => {
+  console.log(qty); // 10, 5, 7
+});
+
+That is a pretty common thing to do it you want to like loop over and add up how much inventory you have or you want to add up all the numbers.
+
+Object.keys(meats).forEach(qty => {
+  console.log(qty); // beyond, beef, pork
+});
+
+Object.entries(meats).forEach(([key, value]) => {
+  console.log(key, value); // beyond 10, beef 5, pork 7
+});
+
+For each one, you get an array with 2 items.
+The first item is always going to be the key, and the second item will always be the value.
+
+const key = entry[0];
+const value = entry[1];
+console.log(key, value); // beyond 10, beef 5, pork 7
+
+Something that we have talked about that is very useful in this scenario is destructuring.
+const [key, value] = entry;
+What that code is doing is it is taking the first item in the entry array and assigning it to the variable key and it's taking the second item and assigning it to the variable value.
+
+That is the exact same thing as -
+const key = entry[0];
+const value = entry[1];
+
+
+
+
+
 
 
 

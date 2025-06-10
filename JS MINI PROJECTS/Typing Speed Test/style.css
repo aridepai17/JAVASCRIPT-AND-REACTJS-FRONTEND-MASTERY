@@ -1,0 +1,130 @@
+* {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    display: flex;
+    padding: 0 10px;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: orange;
+  }
+  
+  .wrapper {
+    width: 100%;
+    max-width: 770px;
+    padding: 35px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+  }
+  
+  .input-field {
+    position: absolute;
+    opacity: 0;
+    z-index: -99;
+  }
+  
+  .content-box {
+    padding: 13px 20px 0;
+    border-radius: 10px;
+    border: 1px solid #bfbfbf;
+    height: 150px;
+    overflow-y: auto;
+  }
+  
+  .typing-text p {
+    font-size: 18px;
+    line-height: 28px;
+    user-select: none;
+  }
+  
+  .typing-text p span {
+    position: relative;
+    white-space: pre;
+  }
+  
+  .typing-text p span.active {
+    color: orange;
+  }
+  
+  .typing-text p span.active::after {
+    content: '|';
+    position: absolute;
+    right: -2px;
+    animation: blink 1s infinite;
+  }
+  
+  @keyframes blink {
+    0%, 50%, 100% {
+      opacity: 1;
+    }
+    25%, 75% {
+      opacity: 0;
+    }
+  }
+  
+  .typing-text p span.correct {
+    color: green;
+  }
+  
+  .typing-text p span.incorrect {
+    color: red;
+    outline: 1px solid #fff;
+    background: #ffc0cb;
+    border-radius: 4px;
+  }
+  
+  .content {
+    margin-top: 17px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 0;
+    border-top: 1px solid #bfbfbf;
+  }
+  
+  .result-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 140px);
+    flex-wrap: wrap;
+  }
+  
+  .result-details li {
+    display: flex;
+    height: 20px;
+    list-style: none;
+    align-items: center;
+    margin-right: 20px;
+  }
+  
+  .content button {
+    width: 105px;
+    outline: none;
+    border: none;
+    color: #fff;
+    background: orange;
+    padding: 8px 0;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+  }
+  
+  .content button:active {
+    transform: scale(0.97);
+  }
+  
+  ::selection {
+    background: orange;
+    color: #fff;
+  }
+  

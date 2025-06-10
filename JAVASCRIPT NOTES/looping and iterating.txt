@@ -253,5 +253,3 @@ console.log(inventoryCounts); // { shirt: 2, pants: 3, socks: 2 }
 
 const totalInventoryPrice = inventory.reduce((acc, item) => acc + item.price, 0);
 console.log(totalInventoryPrice); // 12317
-
-
